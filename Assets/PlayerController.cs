@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 4f;
+    public float dashDistance = 50f;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
         {
             teleportPointer.SetActive(true);
             RaycastHit rhInfo;
-            if (Physics.Raycast(transform.position, Camera.main.transform.forward, out rhInfo, 40.0f))
+            if (Physics.Raycast(transform.position, Camera.main.transform.forward, out rhInfo, dashDistance))
             {
                 Debug.Log(rhInfo.collider.gameObject.name);
                 teleportPointer.transform.position = rhInfo.point;
