@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    public GameObject teleportPointer;
+
     bool hasDoubleJumped = false;
 
     Vector3 velocity;
@@ -37,6 +39,26 @@ public class PlayerController : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
+
+        if(Input.GetKey(KeyCode.E))
+        {
+            teleportPointer.SetActive(true);
+            RaycastHit rhInfo;
+            if (Physics.Raycast(transform.position, Camera.main.transform.forward, out rhInfo, 40.0f))
+            {
+                Debug.Log(rhInfo.collider.gameObject.name);
+                teleportPointer.transform.position = rhInfo.point;
+                //transform.position = rhInfo.point;
+            }
+        }
+
+        if(Input.GetKeyUp(KeyCode.E))
+        {
+
+            Debug.Log("teleport");
+            controller.Move(teleportPointer.transform.position - transform.position - transform.forward);
+            teleportPointer.SetActive(false);
+        }
 
         if(Input.GetButtonDown("Jump") )
         {
