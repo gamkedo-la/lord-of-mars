@@ -21,6 +21,11 @@ public class PlayerController : MonoBehaviour
     private float timeBetweenTapsL = 0.0f;
     private float tapHoldTimeR = 0f;
     private float timeBetweenTapsR = 0.0f;
+    private float tapHoldTimeF = 0f;
+    private float timeBetweenTapsF = 0.0f;
+    private float tapHoldTimeB = 0f;
+    private float timeBetweenTapsB = 0.0f;
+
     private const float MAX_HOLD_FOR_TAP = 0.25f;
     private const float MAX_TIME_BETWEEN_TAPS_FOR_DASH = 0.3f;
     private const float MIN_TIME_BETWEEN_DASHES = 1.0f;
@@ -53,6 +58,8 @@ public class PlayerController : MonoBehaviour
         timeSinceDash += Time.deltaTime;
         HandleLeftDash();
         HandleRightDash();
+        HandleForwardDash();
+        HandleBackwardsDash();
 
         if (Input.GetButtonDown("Jump") )
         {
@@ -159,5 +166,66 @@ public class PlayerController : MonoBehaviour
             tapHoldTimeR += Time.deltaTime;
         }
     }
+
+    private void HandleForwardDash()
+    {
+        timeBetweenTapsF += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            tapHoldTimeF = 0.0f;
+        }
+        else if (Input.GetKeyUp(KeyCode.W))
+        {
+            if (tapHoldTimeF < MAX_HOLD_FOR_TAP)
+            {
+                if (timeBetweenTapsF < MAX_TIME_BETWEEN_TAPS_FOR_DASH)
+                {
+                    Debug.Log("dash forward");
+                    TeleDash(transform.forward);
+                    timeBetweenTapsF = MAX_TIME_BETWEEN_TAPS_FOR_DASH; //prevent consecutive double taps
+                }
+                else
+                {
+                    timeBetweenTapsF = 0.0f;
+                }
+            }
+        }
+        else
+        {
+            tapHoldTimeF += Time.deltaTime;
+        }
+    }
+
+    private void HandleBackwardsDash()
+    {
+        timeBetweenTapsB += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            tapHoldTimeB = 0.0f;
+        }
+        else if (Input.GetKeyUp(KeyCode.S))
+        {
+            if (tapHoldTimeB < MAX_HOLD_FOR_TAP)
+            {
+                if (timeBetweenTapsB < MAX_TIME_BETWEEN_TAPS_FOR_DASH)
+                {
+                    Debug.Log("dash backwards");
+                    TeleDash(-transform.forward);
+                    timeBetweenTapsB = MAX_TIME_BETWEEN_TAPS_FOR_DASH; //prevent consecutive double taps
+                }
+                else
+                {
+                    timeBetweenTapsB = 0.0f;
+                }
+            }
+        }
+        else
+        {
+            tapHoldTimeB += Time.deltaTime;
+        }
+    }
+
 
 }
