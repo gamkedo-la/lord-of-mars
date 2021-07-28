@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 4f;
-    public float dashDistance = 50f;
+    private float dashDistance = 20f;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -58,34 +58,14 @@ public class PlayerController : MonoBehaviour
                 if(timeBetweenTapsL < MAX_TIME_BETWEEN_TAPS_FOR_DASH)
                 {
                     Debug.Log("dash left");
+                    TeleDash(-transform.right);
                 }
                 timeBetweenTapsL = 0.0f;
             }
-          
         }
         else
         {
             tapHoldTimeL += Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            teleportPointer.SetActive(true);
-            RaycastHit rhInfo;
-            if (Physics.Raycast(transform.position, Camera.main.transform.forward, out rhInfo, dashDistance))
-            {
-                Debug.Log(rhInfo.collider.gameObject.name);
-                teleportPointer.transform.position = rhInfo.point;
-                //transform.position = rhInfo.point;
-            }
-        }
-
-        if(Input.GetKeyUp(KeyCode.E))
-        {
-
-            Debug.Log("teleport");
-            controller.Move(teleportPointer.transform.position - transform.position - transform.forward);
-            teleportPointer.SetActive(false);
         }
 
         if(Input.GetButtonDown("Jump") )
@@ -110,4 +90,25 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
     }
+
+    public void TeleDash(Vector3 dir)
+    {
+        teleportPointer.SetActive(true);
+        RaycastHit rhInfo;
+        if (Physics.Raycast(transform.position, dir, out rhInfo, dashDistance))
+        {
+            Debug.Log(rhInfo.collider.gameObject.name);
+            teleportPointer.transform.position = rhInfo.point;
+            //transform.position = rhInfo.point;
+        }
+        else
+        {
+            teleportPointer.transform.position = transform.position + dir * dashDistance;
+        }
+        controller.Move(teleportPointer.transform.position - transform.position - dir);
+        //teleportPointer.SetActive(false);
+    }
+
+
+
 }
