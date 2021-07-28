@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    private float tapHoldTimeL = 0f;
+    private const float MAX_HOLD_FOR_TAP = 0.3f;
+    private float timeBetweenTapsL = 0.0f;
+    private const float MAX_TIME_BETWEEN_TAPS_FOR_DASH = 0.5f;
+
     public GameObject teleportPointer;
 
     bool hasDoubleJumped = false;
@@ -40,8 +45,30 @@ public class PlayerController : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
+        timeBetweenTapsL += Time.deltaTime;
 
-        if(Input.GetKey(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            tapHoldTimeL = 0.0f;
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            if(tapHoldTimeL < MAX_HOLD_FOR_TAP)
+            {
+                if(timeBetweenTapsL < MAX_TIME_BETWEEN_TAPS_FOR_DASH)
+                {
+                    Debug.Log("dash left");
+                }
+                timeBetweenTapsL = 0.0f;
+            }
+          
+        }
+        else
+        {
+            tapHoldTimeL += Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.E))
         {
             teleportPointer.SetActive(true);
             RaycastHit rhInfo;
