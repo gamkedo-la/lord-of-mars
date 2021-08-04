@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+
+    public Text cursor;
+    private float grappleDistance = 80f;
 
     private float timeSinceDash = 0.0f;
     private float tapHoldTimeL = 0f;
@@ -60,6 +64,29 @@ public class PlayerController : MonoBehaviour
         HandleRightDash();
         HandleForwardDash();
         HandleBackwardsDash();
+
+
+        GameObject grappleTarget = null;
+        RaycastHit rhInfo;
+        if (Physics.Raycast(transform.position, Camera.main.transform.forward, out rhInfo, grappleDistance))
+        {
+            if(rhInfo.collider.gameObject.layer == LayerMask.NameToLayer("Grapple"))
+            {
+                grappleTarget = rhInfo.collider.gameObject;
+            }
+        }
+        cursor.color = (grappleTarget != null ? Color.green : Color.red);
+        if (Input.GetMouseButton(1))
+        {
+            if (grappleTarget != null)
+            {
+                Debug.Log("grapple success");
+            }
+            else
+            {
+                Debug.Log("grapple fail, play sound effect");
+            }
+        }
 
         if (Input.GetButtonDown("Jump") )
         {
