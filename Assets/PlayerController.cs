@@ -17,8 +17,11 @@ public class PlayerController : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    public float grappleStrength = 50f;
+    public float grappleDecay = 0.95f;
     public Text cursor;
     private float grappleDistance = 80f;
+    private GameObject currentGrapplePoint = null;
 
     private float timeSinceDash = 0.0f;
     private float tapHoldTimeL = 0f;
@@ -41,6 +44,12 @@ public class PlayerController : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -76,40 +85,72 @@ public class PlayerController : MonoBehaviour
             }
         }
         cursor.color = (grappleTarget != null ? Color.green : Color.red);
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             if (grappleTarget != null)
             {
-                Debug.Log("grapple success");
+                currentGrapplePoint = grappleTarget;
             }
             else
             {
                 Debug.Log("grapple fail, play sound effect");
             }
         }
-
-        if (Input.GetButtonDown("Jump") )
+        if (Input.GetMouseButtonUp(1))
         {
-            bool canJump = false;
-            if (isGrounded)
-            {
-                canJump = true;
-            }
-            else if( hasDoubleJumped == false)
-            {
-                canJump = true;
-                hasDoubleJumped = true;
-            }
-            if (canJump)
-            {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            }
+            currentGrapplePoint = null;
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        if (currentGrapplePoint != null)
+        {
+            float distance = Vector3.Distance(currentGrapplePoint.transform.position, transform.position);
+            if (distance > 5.0f)
+            {
+                velocity = (currentGrapplePoint.transform.position - transform.position).normalized * grappleStrength;
+            }
+            else
+            {
+                Vector3 relativePt = transform.InverseTransformPoint(currentGrapplePoint.transform.position);
+                if(relativePt.z < 0.0f) //behind us
+                {
+                    currentGrapplePoint = null;
+                }
+            }
+        }
+        else
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                bool canJump = false;
+                if (isGrounded)
+                {
+                    canJump = true;
+                }
+                else if (hasDoubleJumped == false)
+                {
+                    canJump = true;
+                    hasDoubleJumped = true;
+                }
+                if (canJump)
+                {
+                    velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                }
+            } 
+        }
 
+    }
+
+    private void FixedUpdate()
+    {
+        if(currentGrapplePoint == null)
+        {
+            velocity.x *= grappleDecay;
+            velocity.z *= grappleDecay;
+            velocity.y += gravity * Time.deltaTime; //only applying gravity when not grappling 
+        }
         controller.Move(velocity * Time.deltaTime);
     }
+
 
     private void TeleDash(Vector3 dir)
     {

@@ -2119,7 +2119,7 @@ GameObject:
   - component: {fileID: 546047614}
   - component: {fileID: 546047613}
   - component: {fileID: 546047612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Teleport Pointer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2365,7 +2365,7 @@ GameObject:
   - component: {fileID: 571063794}
   - component: {fileID: 571063793}
   - component: {fileID: 571063792}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Grapple Point (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2539,7 +2539,7 @@ GameObject:
   - component: {fileID: 590435514}
   - component: {fileID: 590435517}
   - component: {fileID: 590435518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -3363,7 +3363,7 @@ GameObject:
   - component: {fileID: 721685736}
   - component: {fileID: 721685739}
   - component: {fileID: 721685738}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4088,7 +4088,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 857347870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6289,7 +6289,7 @@ GameObject:
   - component: {fileID: 1291502172}
   - component: {fileID: 1291502171}
   - component: {fileID: 1291502170}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Grapple Point (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6383,7 +6383,7 @@ GameObject:
   - component: {fileID: 1297318297}
   - component: {fileID: 1297318298}
   - component: {fileID: 1297318299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: First Person Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6428,6 +6428,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
+  grappleStrength: 50
+  grappleDecay: 0.95
   cursor: {fileID: 865991109}
   teleportPointer: {fileID: 546047610}
 --- !u!143 &1297318299
@@ -6770,7 +6772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1391522964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Scene Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10274,7 +10276,7 @@ GameObject:
   - component: {fileID: 1929765428}
   - component: {fileID: 1929765427}
   - component: {fileID: 1929765426}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Grapple Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10447,7 +10449,7 @@ GameObject:
   - component: {fileID: 1988677393}
   - component: {fileID: 1988677392}
   - component: {fileID: 1988677391}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Grapple Point (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11099,7 +11101,7 @@ GameObject:
   - component: {fileID: 2101623455}
   - component: {fileID: 2101623454}
   - component: {fileID: 2101623453}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
