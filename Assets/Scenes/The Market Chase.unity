@@ -2657,6 +2657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 1000
   playerBody: {fileID: 1297318297}
+  cameraTilt: 1
 --- !u!4 &606459239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9169391996915237923, guid: 0e7ef9cf4fe08824fa3868dea11b6894, type: 3}
@@ -6427,7 +6428,7 @@ MonoBehaviour:
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 256
   grappleStrength: 50
   grappleDecay: 0.95
   cursor: {fileID: 865991109}

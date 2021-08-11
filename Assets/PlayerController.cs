@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public CharacterController controller;
+    private MouseLook mLook;
 
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -36,7 +37,14 @@ public class PlayerController : MonoBehaviour
     private const float MAX_HOLD_FOR_TAP = 0.25f;
     private const float MAX_TIME_BETWEEN_TAPS_FOR_DASH = 0.3f;
     private const float MIN_TIME_BETWEEN_DASHES = 1.0f;
-    
+
+    private float wallRunGap = 2f;
+
+    private const int WALLRUNNING_SIDE_LEFT = -1;
+    private const int WALLRUNNING_SIDE_NONE = 0;
+    private const int WALLRUNNING_SIDE_RIGHT = 1;
+    private int wallrunningSide = WALLRUNNING_SIDE_NONE;
+
 
     public GameObject teleportPointer;
 
@@ -47,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        mLook = GetComponentInChildren<MouseLook>();
         Cursor.lockState = CursorLockMode.Locked; //doesn't work currently
     }
 
@@ -54,6 +63,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit rhInfo;
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if(isGrounded && velocity.y < 0)
@@ -61,10 +71,15 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
             hasDoubleJumped = false;
         }
+        if(wallrunningSide != WALLRUNNING_SIDE_NONE)
+        {
+            hasDoubleJumped = false;
+        }
+        mLook.cameraTilt = wallrunningSide;
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-
+        bool runningForward = z >= 0.8f; //for Wallrunning
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
@@ -76,7 +91,6 @@ public class PlayerController : MonoBehaviour
 
 
         GameObject grappleTarget = null;
-        RaycastHit rhInfo;
         if (Physics.Raycast(transform.position, Camera.main.transform.forward, out rhInfo, grappleDistance))
         {
             if(rhInfo.collider.gameObject.layer == LayerMask.NameToLayer("Grapple"))
@@ -103,6 +117,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentGrapplePoint != null)
         {
+            wallrunningSide = WALLRUNNING_SIDE_NONE; // Can't wallrun while grappling
             float distance = Vector3.Distance(currentGrapplePoint.transform.position, transform.position);
             if (distance > 5.0f)
             {
@@ -117,12 +132,28 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else
+        else //not grappling 
         {
+            if (runningForward && Physics.Raycast(transform.position, -transform.right, out rhInfo, wallRunGap))
+            {
+                // Debug.Log(rhInfo.collider.gameObject.name + " left");
+                wallrunningSide = WALLRUNNING_SIDE_LEFT;
+            }
+
+            else if (runningForward && Physics.Raycast(transform.position, transform.right, out rhInfo, wallRunGap))
+            {
+                // Debug.Log(rhInfo.collider.gameObject.name + " right");
+                wallrunningSide = WALLRUNNING_SIDE_RIGHT;
+            }
+            else
+            {
+                wallrunningSide = WALLRUNNING_SIDE_NONE;
+            }
+
             if (Input.GetButtonDown("Jump"))
             {
                 bool canJump = false;
-                if (isGrounded)
+                if (isGrounded) //|| wallrunningSide != WALLRUNNING_SIDE_NONE
                 {
                     canJump = true;
                 }
@@ -134,6 +165,8 @@ public class PlayerController : MonoBehaviour
                 if (canJump)
                 {
                     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                    isGrounded = false;
+                    wallrunningSide = WALLRUNNING_SIDE_NONE;
                 }
             } 
         }
@@ -146,7 +179,14 @@ public class PlayerController : MonoBehaviour
         {
             velocity.x *= grappleDecay;
             velocity.z *= grappleDecay;
-            velocity.y += gravity * Time.deltaTime; //only applying gravity when not grappling 
+            if(wallrunningSide != WALLRUNNING_SIDE_NONE)
+            {
+                velocity.y = 0f;
+            }
+            else
+            {
+                velocity.y += gravity * Time.deltaTime; //only applying gravity when not grappling 
+            }
         }
         controller.Move(velocity * Time.deltaTime);
     }

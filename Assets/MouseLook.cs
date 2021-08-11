@@ -10,6 +10,9 @@ public class MouseLook : MonoBehaviour
     public Transform playerBody;
 
     float xRotation = 0f;
+    public float cameraTilt = 0.0f;
+    private float cameraTiltSmooth = 0.0f;
+    private const float TILT_DEGREES = 30.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +29,14 @@ public class MouseLook : MonoBehaviour
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        transform.localRotation = Quaternion.Euler(xRotation, 0, cameraTiltSmooth * TILT_DEGREES);
         playerBody.Rotate(Vector3.up * mouseX); 
+    }
+
+
+    private void FixedUpdate()
+    {
+        float rate = 0.1f;
+        cameraTiltSmooth = cameraTilt * rate + cameraTiltSmooth * (1.0f - rate);
     }
 }
