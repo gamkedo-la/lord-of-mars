@@ -64,7 +64,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         RaycastHit rhInfo;
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        float angleBelowUs = 90f;
+        if (Physics.Raycast(transform.position, Vector3.down, out rhInfo, 4.0f))
+        {
+            angleBelowUs = Mathf.Acos(rhInfo.normal.y)*Mathf.Rad2Deg;
+        }
+        else
+        {
+            Debug.Log("floating");
+        }
+        isGrounded = (angleBelowUs <= controller.slopeLimit);
 
         if(isGrounded && velocity.y < 0)
         {
