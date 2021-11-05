@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    public Transform fireFrom;
+
     public float grappleStrength = 50f;
     public float grappleDecay = 0.95f;
     public Text cursor;
@@ -69,10 +71,6 @@ public class PlayerController : MonoBehaviour
         {
             angleBelowUs = Mathf.Acos(rhInfo.normal.y)*Mathf.Rad2Deg;
         }
-        else
-        {
-            Debug.Log("floating");
-        }
         isGrounded = (angleBelowUs <= controller.slopeLimit);
 
         if(isGrounded && velocity.y < 0)
@@ -97,7 +95,7 @@ public class PlayerController : MonoBehaviour
         HandleRightDash();
         HandleForwardDash();
         HandleBackwardsDash();
-
+        HandleShoot();
 
         GameObject grappleTarget = null;
         if (Physics.Raycast(transform.position, Camera.main.transform.forward, out rhInfo, grappleDistance))
@@ -343,6 +341,21 @@ public class PlayerController : MonoBehaviour
             tapHoldTimeB += Time.deltaTime;
         }
     }
+
+
+    private void HandleShoot()
+    {
+        if(Input.GetButtonDown("Fire1"))
+        {
+            RaycastHit rhInfo;
+            if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out rhInfo, 200.0f))
+            {
+                Debug.Log(rhInfo.collider.name);
+            }
+            Debug.Log("Shoot");
+        }
+    }
+
 
 
 }
