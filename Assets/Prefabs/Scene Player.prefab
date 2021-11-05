@@ -539,6 +539,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireFrom: {fileID: 1295126392766998668}
+  flashParticle: {fileID: 7728757257163544773, guid: 3bb4ea0afa9e6ed44a61bd73ee931bde, type: 3}
   grappleStrength: 50
   grappleDecay: 0.95
   cursor: {fileID: 0}
