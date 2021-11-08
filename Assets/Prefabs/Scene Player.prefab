@@ -575,6 +575,9 @@ MonoBehaviour:
   grappleStrength: 50
   grappleDecay: 0.95
   cursor: {fileID: 0}
+  wallRunMask:
+    serializedVersion: 2
+    m_Bits: 275
   teleportPointer: {fileID: 7559971859971920638}
 --- !u!143 &7559971860420285727
 CharacterController:

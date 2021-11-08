@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private const float MIN_TIME_BETWEEN_DASHES = 1.0f;
 
     private float wallRunGap = 2f;
+    public LayerMask wallRunMask;
 
     private const int WALLRUNNING_SIDE_LEFT = -1;
     private const int WALLRUNNING_SIDE_NONE = 0;
@@ -146,14 +147,16 @@ public class PlayerController : MonoBehaviour
         }
         else //not grappling 
         {
-            if (runningForward && Physics.Raycast(transform.position, -transform.right, out rhInfo, wallRunGap))
+            if (runningForward && Physics.Raycast(transform.position, -transform.right, out rhInfo, wallRunGap, wallRunMask))
             {
+                // Debug.DrawLine(transform.position, transform.position + (-transform.right * wallRunGap), Color.red, 1f);
                 // Debug.Log(rhInfo.collider.gameObject.name + " left");
                 wallrunningSide = WALLRUNNING_SIDE_LEFT;
             }
 
-            else if (runningForward && Physics.Raycast(transform.position, transform.right, out rhInfo, wallRunGap))
+            else if (runningForward && Physics.Raycast(transform.position, transform.right, out rhInfo, wallRunGap, wallRunMask))
             {
+                // Debug.DrawLine(transform.position, transform.position + (transform.right * wallRunGap), Color.red, 1f);
                 // Debug.Log(rhInfo.collider.gameObject.name + " right");
                 wallrunningSide = WALLRUNNING_SIDE_RIGHT;
             }
