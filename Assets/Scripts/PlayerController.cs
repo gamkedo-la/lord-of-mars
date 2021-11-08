@@ -56,10 +56,14 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    private Transform CameraTransform;
+
     private void Start()
     {
         mLook = GetComponentInChildren<MouseLook>();
+        print(mLook);
         Cursor.lockState = CursorLockMode.Locked; //doesn't work currently
+        CameraTransform = GameObject.FindWithTag("MainCamera").transform;
     }
 
 
@@ -99,7 +103,7 @@ public class PlayerController : MonoBehaviour
         HandleShoot();
 
         GameObject grappleTarget = null;
-        if (Physics.Raycast(transform.position, Camera.main.transform.forward, out rhInfo, grappleDistance))
+        if (Physics.Raycast(transform.position, CameraTransform.forward, out rhInfo, grappleDistance))
         {
             if(rhInfo.collider.gameObject.layer == LayerMask.NameToLayer("Grapple"))
             {
@@ -349,7 +353,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             RaycastHit rhInfo;
-            if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out rhInfo, 200.0f))
+            if(Physics.Raycast(CameraTransform.position, CameraTransform.forward, out rhInfo, 200.0f))
             {
                 Debug.Log(rhInfo.collider.name);
                 GameObject.Instantiate(flashParticle, rhInfo.point, Quaternion.identity);
