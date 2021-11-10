@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    // This is Samuel Axon's practice commit. It will be removed expediently.
     public CharacterController controller;
     private MouseLook mLook;
 
