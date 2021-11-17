@@ -358,10 +358,11 @@ public class PlayerController : MonoBehaviour
             if(Physics.Raycast(CameraTransform.position, CameraTransform.forward, out rhInfo, 200.0f))
             {
                 Debug.Log(rhInfo.collider.name);
-                GameObject.Instantiate(flashParticle, rhInfo.point, Quaternion.identity);
+                var particleRotation = CameraTransform.rotation * Quaternion.AngleAxis(-90f, Vector3.right);
+                GameObject.Instantiate(flashParticle, rhInfo.point, particleRotation);
             }
             Debug.Log("Shoot");
-            GameObject.Instantiate(flashParticle, fireFrom.position, Quaternion.identity);
+            GameObject.Instantiate(flashParticle, fireFrom.position, CameraTransform.rotation);
         }
     }
 
