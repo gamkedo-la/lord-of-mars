@@ -1,0 +1,8 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl custom1(Clone)
+Kd 0.8034483 0.4583307 0.4583307
+
+newmtl _defaultMat(Clone)
+Kd 0.8241379 0.5939218 0.5731505
+
