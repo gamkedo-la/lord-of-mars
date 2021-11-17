@@ -362,7 +362,7 @@ public class PlayerController : MonoBehaviour
                 GameObject.Instantiate(flashParticle, rhInfo.point, particleRotation);
             }
             Debug.Log("Shoot");
-            GameObject.Instantiate(flashParticle, fireFrom.position, CameraTransform.rotation);
+            GameObject.Instantiate(flashParticle, fireFrom.position, CameraTransform.rotation, fireFrom);
         }
     }
 
