@@ -362,7 +362,7 @@ public class PlayerController : MonoBehaviour
                 var particleRotation = CameraTransform.rotation * Quaternion.AngleAxis(-90f, Vector3.right);
                 GameObject.Instantiate(flashParticle, rhInfo.point, particleRotation);
             }
-            Debug.Log("Shoot");
+            //Debug.Log("Shoot");
             GameObject.Instantiate(flashParticle, fireFrom.position, CameraTransform.rotation, fireFrom);
         }
     }
