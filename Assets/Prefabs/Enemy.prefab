@@ -210,6 +210,7 @@ MonoBehaviour:
   gunList:
   - {fileID: 7371419790615865481}
   - {fileID: 7373456389249715942}
+  muzzleEffect: {fileID: 8897455943257537131, guid: 6054d2495ab0ce346b271522ee715bab, type: 3}
 --- !u!195 &1229322134
 NavMeshAgent:
   m_ObjectHideFlags: 0
