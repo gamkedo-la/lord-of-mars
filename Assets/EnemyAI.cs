@@ -32,12 +32,19 @@ public class EnemyAI : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Fire " + fireNext);
-            GameObject.Instantiate(muzzleEffect, gunList[fireNext].position, gunList[fireNext].rotation);
-            fireNext++;
-            if(fireNext >= gunList.Length)
+            // need to do: shoot raycast to target
+            bool shouldShoot = false;
+            float angToTarget = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(chaseThis.position - transform.position));
+            //assesses whether player is within line of sight
+            shouldShoot = angToTarget < 10.0f;
+            if (shouldShoot)
             {
-                fireNext = 0;
+                GameObject.Instantiate(muzzleEffect, gunList[fireNext].position, gunList[fireNext].rotation);
+                fireNext++;
+                if (fireNext >= gunList.Length)
+                {
+                    fireNext = 0;
+                }
             }
             yield return new WaitForSeconds(0.5f);
         }
