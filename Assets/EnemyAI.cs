@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
 {
     public Transform chaseThis;
     NavMeshAgent agent;
+    public Transform[] gunList;
 
     // Start is called before the first frame update
     void Start()
