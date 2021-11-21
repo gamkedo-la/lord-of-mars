@@ -572,7 +572,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   fireFrom: {fileID: 1295126392766998668}
-  flashParticle: {fileID: 0}
+  flashParticle: {fileID: 8897455943257537131, guid: 6054d2495ab0ce346b271522ee715bab, type: 3}
   bulletMask:
     serializedVersion: 2
     m_Bits: 403
