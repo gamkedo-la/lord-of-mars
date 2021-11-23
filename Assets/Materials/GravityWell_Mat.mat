@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GravityWell_Mat
+  m_Shader: {fileID: -6465566751694194690, guid: 72eaf7c327f670447a3158abfb7a330d, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Layer_46C8CFEC:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Layer_E7443E1D:
+        m_Texture: {fileID: 8400000, guid: ddc79cdb696d4694a8341ba53d9438b3, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_207c4fa397874b78a2e568ba1016d094:
+        m_Texture: {fileID: 8400000, guid: ddc79cdb696d4694a8341ba53d9438b3, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_19bfec72f9c14463901bb0b8af7f5d21_Texture_1:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_e9dd404cf52c4d11bbb236cc039e355a: 50
+    - Vector1_f922039c5bbb4eb3909021dd41337ad0: 0.514
+    - Vector1_fa733e9ab3184b9cb74832e283db2cc4: 90
+    m_Colors:
+    - Color_ef96892ab56d470b9a86f9f4e1715e0f: {r: 0.5019608, g: 0.1019608, b: 0.8941177, a: 1}
+  m_BuildTextureStacks: []
