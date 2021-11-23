@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1155284231}
   m_IndirectSpecularColor: {r: 0.18028437, g: 0.22571497, b: 0.3069236, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -509,8 +509,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1929765429}
-  - {fileID: 10213225}
   - {fileID: 466288899}
+  - {fileID: 10213225}
   - {fileID: 2012450024}
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -6695,7 +6695,7 @@ Light:
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 5
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -13617,7 +13617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7315378083831934144, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7559971859982057529, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
       propertyPath: m_StopNaN
