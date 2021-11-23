@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public Transform fireFrom;
     public GameObject flashParticle;
     public LayerMask bulletMask;
+    public ParticleSystem flash;
 
     public float grappleStrength = 50f;
     public float grappleDecay = 0.95f;
@@ -359,11 +360,9 @@ public class PlayerController : MonoBehaviour
             if(Physics.Raycast(CameraTransform.position, CameraTransform.forward, out rhInfo, 200.0f, bulletMask))
             {
                 Debug.Log(rhInfo.collider.name);
-                var particleRotation = CameraTransform.rotation * Quaternion.AngleAxis(-90f, Vector3.right);
-                GameObject.Instantiate(flashParticle, rhInfo.point, particleRotation);
+                Instantiate(flashParticle, rhInfo.point + rhInfo.normal * 0.1f, Quaternion.identity);
             }
-            //Debug.Log("Shoot");
-            GameObject.Instantiate(flashParticle, fireFrom.position, CameraTransform.rotation, fireFrom);
+            flash.Play();
         }
     }
 
