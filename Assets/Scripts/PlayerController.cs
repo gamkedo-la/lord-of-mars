@@ -245,7 +245,6 @@ public class PlayerController : MonoBehaviour
             {
                 if (timeBetweenTapsL < MAX_TIME_BETWEEN_TAPS_FOR_DASH)
                 {
-                    Debug.Log("dash left");
                     TeleDash(-transform.right);
                     timeBetweenTapsL = MAX_TIME_BETWEEN_TAPS_FOR_DASH; //prevent consecutive double taps
                 }
@@ -275,7 +274,6 @@ public class PlayerController : MonoBehaviour
             {
                 if (timeBetweenTapsR < MAX_TIME_BETWEEN_TAPS_FOR_DASH)
                 {
-                    Debug.Log("dash right");
                     TeleDash(transform.right);
                     timeBetweenTapsR = MAX_TIME_BETWEEN_TAPS_FOR_DASH; //prevent consecutive double taps
                 }
@@ -305,7 +303,6 @@ public class PlayerController : MonoBehaviour
             {
                 if (timeBetweenTapsF < MAX_TIME_BETWEEN_TAPS_FOR_DASH)
                 {
-                    Debug.Log("dash forward");
                     TeleDash(transform.forward);
                     timeBetweenTapsF = MAX_TIME_BETWEEN_TAPS_FOR_DASH; //prevent consecutive double taps
                 }
@@ -335,7 +332,6 @@ public class PlayerController : MonoBehaviour
             {
                 if (timeBetweenTapsB < MAX_TIME_BETWEEN_TAPS_FOR_DASH)
                 {
-                    Debug.Log("dash backwards");
                     TeleDash(-transform.forward);
                     timeBetweenTapsB = MAX_TIME_BETWEEN_TAPS_FOR_DASH; //prevent consecutive double taps
                 }
@@ -359,11 +355,11 @@ public class PlayerController : MonoBehaviour
             RaycastHit rhInfo;
             if(Physics.Raycast(CameraTransform.position, CameraTransform.forward, out rhInfo, 200.0f, bulletMask))
             {
-                Debug.Log(rhInfo.collider.name);
+                //Debug.Log(rhInfo.collider.name);
                 Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
                 if(hurtScript)
                 {
-                    hurtScript.TakeDamage(10.0f);
+                    hurtScript.TakeDamage(25.0f);
                 }
                 Instantiate(flashParticle, rhInfo.point + rhInfo.normal * 0.1f, Quaternion.identity);
             }

@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public Transform chaseThis;
     public Transform[] gunList;
     public GameObject muzzleEffect;
+    public LayerMask bulletMask;
     NavMeshAgent agent;
     int fireNext = 0;
 
@@ -32,14 +33,30 @@ public class EnemyAI : MonoBehaviour
     {
         while (true)
         {
-            // need to do: shoot raycast to target
             bool shouldShoot = false;
-            float angToTarget = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(chaseThis.position - transform.position));
+            Quaternion gunTargetAngle = Quaternion.LookRotation(chaseThis.position - gunList[fireNext].position);
+            Quaternion facingAngle = Quaternion.LookRotation(chaseThis.position - transform.position);
+            float angToTarget = Quaternion.Angle(transform.rotation, facingAngle);
             //assesses whether player is within line of sight
-            shouldShoot = angToTarget < 10.0f;
+            shouldShoot = angToTarget < 45.0f;
             if (shouldShoot)
             {
+                gunList[fireNext].rotation = Quaternion.Slerp(gunList[fireNext].rotation,
+                    gunTargetAngle,
+                    0.5f); //percent angle to correct
                 GameObject.Instantiate(muzzleEffect, gunList[fireNext].position, gunList[fireNext].rotation);
+                RaycastHit rhInfo;
+                if (Physics.Raycast(gunList[fireNext].position, gunList[fireNext].forward, out rhInfo, 200.0f, bulletMask))
+                {
+                    Debug.Log(rhInfo.collider.name);
+                    Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
+                    if (hurtScript)
+                    {
+                        hurtScript.TakeDamage(10.0f);
+                    }
+                    //should be hit effect, muzzleEffect is placeholder
+                    Instantiate(muzzleEffect, rhInfo.point + rhInfo.normal * 0.1f, Quaternion.identity);
+                }
                 fireNext++;
                 if (fireNext >= gunList.Length)
                 {

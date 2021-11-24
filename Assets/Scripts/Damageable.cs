@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Damageable : MonoBehaviour
 {
-    private const float MAX_HEALTH = 100.0f;
-    public float health = 0.0f;
+    public float maxHealth = 100.0f;
+    private float health = 0.0f;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        health = MAX_HEALTH;
+        health = maxHealth;
     }
 
     
@@ -31,7 +31,7 @@ public class Damageable : MonoBehaviour
         }
         else
         {
-            Debug.Log(gameObject.name + " health is now " + (health / MAX_HEALTH));
+            Debug.Log(gameObject.name + " health is now " + (health / maxHealth));
         }
     }
 
