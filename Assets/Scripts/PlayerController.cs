@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public Text cursor;
     private float grappleDistance = 80f;
     private GameObject currentGrapplePoint = null;
+    public LineRenderer grappleBeam;
 
     private float timeSinceDash = 0.0f;
     private float tapHoldTimeL = 0f;
@@ -203,6 +204,13 @@ public class PlayerController : MonoBehaviour
             {
                 velocity.y += gravity * Time.deltaTime; //only applying gravity when not grappling 
             }
+            
+            // Disable grapple beam line renderer
+            grappleBeam.gameObject.SetActive(false);
+        }
+        else
+        {
+            UpdateGrappleBeam();
         }
         controller.Move(velocity * Time.deltaTime);
     }
@@ -367,6 +375,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    private void UpdateGrappleBeam()
+    {
+        grappleBeam.gameObject.SetActive(true);
+        grappleBeam.SetPositions(new Vector3[]
+        {
+            currentGrapplePoint.transform.position,
+            fireFrom.position,
+        });
+    }
 
 }
