@@ -360,6 +360,11 @@ public class PlayerController : MonoBehaviour
             if(Physics.Raycast(CameraTransform.position, CameraTransform.forward, out rhInfo, 200.0f, bulletMask))
             {
                 Debug.Log(rhInfo.collider.name);
+                Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
+                if(hurtScript)
+                {
+                    hurtScript.TakeDamage(10.0f);
+                }
                 Instantiate(flashParticle, rhInfo.point + rhInfo.normal * 0.1f, Quaternion.identity);
             }
             flash.Play();
