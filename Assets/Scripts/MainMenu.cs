@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
 
         foreach (Transform child in mainMenuPanel.transform)
         {
-            // StartCoroutine(FadeInButton(child));
+            StartCoroutine(FadeInButton(child));
         }
     }
 
@@ -61,6 +61,8 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator FadeInButton(Transform imageToFade)
     {
+        yield return new WaitWhile(() => titleText.color.a < 1);
+
         Color objectColor = imageToFade.gameObject.GetComponent<Image>().color;
 
         while (objectColor.a < 1)
