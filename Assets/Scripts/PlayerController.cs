@@ -61,24 +61,37 @@ public class PlayerController : MonoBehaviour
 
     private Transform CameraTransform;
 
+    [SerializeField] GameObject parentGameObject;
+    private Vector3 startingPosition;
+
     private void Start()
     {
         mLook = GetComponentInChildren<MouseLook>();
         print(mLook);
         Cursor.lockState = CursorLockMode.Locked; //doesn't work currently
         CameraTransform = GameObject.FindWithTag("MainCamera").transform;
+
+        startingPosition = gameObject.transform.position;
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("gameObject.transform.position.y: " + gameObject.transform.position.y);
+        if (gameObject.transform.position.y < -2.0f)
+        {
+            Debug.Log("inside y position check");
+            gameObject.transform.position = startingPosition;
+        }
         RaycastHit rhInfo;
         float angleBelowUs = 90f;
+        
         if (Physics.Raycast(transform.position, Vector3.down, out rhInfo, 4.0f))
         {
-            angleBelowUs = Mathf.Acos(rhInfo.normal.y)*Mathf.Rad2Deg;
+                angleBelowUs = Mathf.Acos(rhInfo.normal.y) * Mathf.Rad2Deg;
         }
+        
         isGrounded = (angleBelowUs <= controller.slopeLimit);
 
         if(isGrounded && velocity.y < 0)
@@ -187,7 +200,6 @@ public class PlayerController : MonoBehaviour
                 }
             } 
         }
-
     }
 
     private void FixedUpdate()
