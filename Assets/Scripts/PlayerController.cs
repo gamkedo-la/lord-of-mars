@@ -78,10 +78,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("gameObject.transform.position.y: " + gameObject.transform.position.y);
+        //Debug.Log("gameObject.transform.position.y: " + gameObject.transform.position.y);
         if (gameObject.transform.position.y < -2.0f)
         {
-            Debug.Log("inside y position check");
+            //Debug.Log("inside y position check");
             gameObject.transform.position = startingPosition;
         }
         RaycastHit rhInfo;
@@ -372,6 +372,11 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
+            if (GameManagerScript.aTutorialPromptIsOn)
+            {
+                return;
+            }
+
             RaycastHit rhInfo;
             if(Physics.Raycast(CameraTransform.position, CameraTransform.forward, out rhInfo, 200.0f, bulletMask))
             {

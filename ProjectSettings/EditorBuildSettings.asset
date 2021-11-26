@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/The Market Chase.unity
     guid: d55e0c9e5895ddd4680d8b77789aab78
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 214098dd7067ee546b5a3771eccfbafc
   m_configObjects: {}
