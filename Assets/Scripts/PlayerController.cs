@@ -384,7 +384,7 @@ public class PlayerController : MonoBehaviour
                 Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
                 if(hurtScript)
                 {
-                    hurtScript.TakeDamage(25.0f);
+                    hurtScript.TakeDamage(25.0f, CameraTransform.forward);
                 }
                 Instantiate(flashParticle, rhInfo.point + rhInfo.normal * 0.1f, Quaternion.identity);
             }

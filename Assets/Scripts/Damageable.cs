@@ -6,16 +6,17 @@ public class Damageable : MonoBehaviour
 {
     public float maxHealth = 100.0f;
     private float health = 0.0f;
-    
+    private DamageFlash dFlash;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        dFlash = gameObject.GetComponent<DamageFlash>();
     }
 
     
-    public void TakeDamage(float amt)
+    public void TakeDamage(float amt, Vector3 shotDir)
     {
         if(health <= 0.0f && amt > 0.0f)
         {
@@ -23,6 +24,10 @@ public class Damageable : MonoBehaviour
             return;
         }
         health -= amt;
+        if(dFlash)
+        {
+            dFlash.TakeShotFrom(shotDir);
+        }
         if(health <= 0.0f)
         {
             Debug.Log("die " + gameObject.name);
@@ -31,7 +36,7 @@ public class Damageable : MonoBehaviour
         }
         else
         {
-            Debug.Log(gameObject.name + " health is now " + (health / maxHealth));
+            //Debug.Log(gameObject.name + " health is now " + (health / maxHealth));
         }
     }
 

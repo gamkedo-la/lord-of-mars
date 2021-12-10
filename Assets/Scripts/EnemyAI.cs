@@ -48,11 +48,11 @@ public class EnemyAI : MonoBehaviour
                 RaycastHit rhInfo;
                 if (Physics.Raycast(gunList[fireNext].position, gunList[fireNext].forward, out rhInfo, 200.0f, bulletMask))
                 {
-                    Debug.Log(rhInfo.collider.name);
+                    //Debug.Log(rhInfo.collider.name);
                     Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
                     if (hurtScript)
                     {
-                        hurtScript.TakeDamage(10.0f);
+                        hurtScript.TakeDamage(10.0f, gunList[fireNext].forward);
                     }
                     //should be hit effect, muzzleEffect is placeholder
                     Instantiate(muzzleEffect, rhInfo.point + rhInfo.normal * 0.1f, Quaternion.identity);
