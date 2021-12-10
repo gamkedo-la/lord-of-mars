@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 236981364}
   - component: {fileID: 236981363}
   - component: {fileID: 236981362}
-  - component: {fileID: 236981365}
+  - component: {fileID: 236981366}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -245,25 +245,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236981360}
   m_CullTransparentMesh: 1
---- !u!95 &236981365
-Animator:
-  serializedVersion: 3
+--- !u!114 &236981366
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236981360}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 91a15a5b0cd851f4aba348261cfaee8e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e756ca145ec8d40bbf276eac3b3a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonStartingScale: {x: 1, y: 1, z: 1}
+  buttonHighlightScale: {x: 1, y: 1, z: 1}
+  startingColor:
+    serializedVersion: 2
+    rgba: 4279048033
+  highlightColor:
+    serializedVersion: 2
+    rgba: 4278722454
 --- !u!1 &280832286
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,6 +661,7 @@ GameObject:
   - component: {fileID: 766566167}
   - component: {fileID: 766566166}
   - component: {fileID: 766566165}
+  - component: {fileID: 766566168}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -769,6 +771,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766566163}
   m_CullTransparentMesh: 1
+--- !u!114 &766566168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766566163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e756ca145ec8d40bbf276eac3b3a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonStartingScale: {x: 1, y: 1, z: 1}
+  buttonHighlightScale: {x: 1, y: 1, z: 1}
+  startingColor:
+    serializedVersion: 2
+    rgba: 4279048033
+  highlightColor:
+    serializedVersion: 2
+    rgba: 4278722454
 --- !u!1 &1157133061
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 236981360}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1157133064
