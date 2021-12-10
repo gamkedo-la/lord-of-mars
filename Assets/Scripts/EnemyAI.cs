@@ -22,9 +22,14 @@ public class EnemyAI : MonoBehaviour
 
     IEnumerator AIThink()
     {
+        GameObject[] coverPoints = GameObject.FindGameObjectsWithTag("CoverNode");
         while (true)
         {
-            agent.destination = chaseThis.position;
+            //agent.destination = chaseThis.position;
+            if(coverPoints.Length > 0)
+            {
+                agent.destination = coverPoints[0].transform.position;
+            }
             yield return new WaitForSeconds(1.0f);
         }
     }
