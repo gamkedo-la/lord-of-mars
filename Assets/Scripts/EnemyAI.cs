@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent agent;
     int fireNext = 0;
 
-    public enum EnemyAIMode { Nearest, Stand};
+    public enum EnemyAIMode { Nearest, Stand, AimFromCover};
     public EnemyAIMode currentMode = EnemyAIMode.Nearest;
     public EnemyNodeData myWaypoint;
 
@@ -28,6 +28,28 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+    private void FixedUpdate() // so that we can use slerp without framerate inconsistency 
+    {
+        Vector3 tempVector;
+        switch (currentMode)
+        {
+            case EnemyAIMode.Nearest: //navmesh handles this 
+                break;
+            case EnemyAIMode.Stand: //do nothing (helpful for testing)
+                break;
+            case EnemyAIMode.AimFromCover: //aim at player 
+                //transform.LookAt(chaseThis);
+                tempVector = chaseThis.transform.position;
+                tempVector.y = transform.position.y; //same height as us, so we only turn side to side 
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(tempVector - transform.position), 0.1f);
+                break;
+            default:
+                Debug.Log("unhandled AI mode in fixed update " + currentMode);
+                break;
+        }
+    }
+
+
     public bool isAlive()
     {
         return myDamageScript.isDead() == false;
@@ -38,33 +60,57 @@ public class EnemyAI : MonoBehaviour
         while (true)
         {
             //agent.destination = chaseThis.position;
-            if(coverPoints.Length > 0)
+            switch (currentMode)
             {
-                int bestIdx = -1;
-                float bestIdxScore = 999999.0f;
-                EnemyNodeData end;
-                for (int i = 0; i < coverPoints.Length; i++)
-                {
-                    float considerScore = Vector3.Distance(transform.position, coverPoints[i].transform.position);
-                    end = coverPoints[i].GetComponent<EnemyNodeData>();
-                    if (considerScore < bestIdxScore && (end.beingUsedBy == null || end.beingUsedBy == this))
-                    { 
-                        bestIdx = i;
-                        bestIdxScore = considerScore;
-                    }
-                }
-                if (bestIdx != -1)
-                {
-                    if (myWaypoint != null)
+                case EnemyAIMode.Nearest:
+                    if (coverPoints.Length > 0)
                     {
-                        myWaypoint.beingUsedBy = null;
+                        int bestIdx = -1;
+                        float bestIdxScore = 999999.0f;
+                        EnemyNodeData end;
+                        for (int i = 0; i < coverPoints.Length; i++)
+                        {
+                            float considerScore = Vector3.Distance(transform.position, coverPoints[i].transform.position);
+                            end = coverPoints[i].GetComponent<EnemyNodeData>();
+                            if (considerScore < bestIdxScore && (end.beingUsedBy == null || end.beingUsedBy == this))
+                            {
+                                bestIdx = i;
+                                bestIdxScore = considerScore;
+                            }
+                        }
+                        if (bestIdx != -1)
+                        {
+                            if (myWaypoint != null)
+                            {
+                                myWaypoint.beingUsedBy = null;
+                            }
+                            myWaypoint = coverPoints[bestIdx].GetComponent<EnemyNodeData>();
+                            myWaypoint.beingUsedBy = this;
+                            agent.destination = myWaypoint.transform.position;
+                        }
                     }
-                    myWaypoint = coverPoints[bestIdx].GetComponent<EnemyNodeData>();
-                    myWaypoint.beingUsedBy = this;
-                    agent.destination = myWaypoint.transform.position;
-                }   
+                    if(myWaypoint != null)
+                    {
+                        if(Vector3.Distance(transform.position, myWaypoint.transform.position) < 1.0f)
+                        {
+                            currentMode = EnemyAIMode.AimFromCover;
+                            Debug.Log("reached waypoint, changed to attacking");
+                        }
+                    }
+                    break;
+                case EnemyAIMode.Stand:
+                    agent.isStopped = true;
+                    break;
+                case EnemyAIMode.AimFromCover:
+                    agent.isStopped = true;
+                    //to do if player is to close to me, flee  
+                    break;
+                default:
+                    Debug.Log("unhandled AI mode in AIThink " + currentMode);
+                    break;
             }
-            yield return new WaitForSeconds(1.0f);
+
+            yield return new WaitForSeconds(Random.Range(1.0f, 2.0f));
         }
     }
 
