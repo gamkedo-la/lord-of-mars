@@ -18,7 +18,7 @@ public class Damageable : MonoBehaviour
     
     public void TakeDamage(float amt, Vector3 shotDir)
     {
-        if(health <= 0.0f && amt > 0.0f)
+        if(isDead() && amt > 0.0f)
         {
             Debug.Log("Damage ignored, already dead " + gameObject.name);
             return;
@@ -28,7 +28,7 @@ public class Damageable : MonoBehaviour
         {
             dFlash.TakeShotFrom(shotDir);
         }
-        if(health <= 0.0f)
+        if(isDead())
         {
             Debug.Log("die " + gameObject.name);
             health = 0.0f;
@@ -38,6 +38,11 @@ public class Damageable : MonoBehaviour
         {
             //Debug.Log(gameObject.name + " health is now " + (health / maxHealth));
         }
+    }
+
+    public bool isDead()
+    {
+        return health <= 0.0f;
     }
 
 }

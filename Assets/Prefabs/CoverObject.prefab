@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5088116705728899346}
   - component: {fileID: 8361792540183498402}
   - component: {fileID: 1828895816213023241}
+  - component: {fileID: 2967547828050998028}
   m_Layer: 12
   m_Name: CoverObject
   m_TagString: CoverNode
@@ -81,3 +82,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2967547828050998028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9057791539861785676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123ee6a82c4dc3a48b8c6e4cd7a22256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

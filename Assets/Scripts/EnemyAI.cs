@@ -12,14 +12,26 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent agent;
     int fireNext = 0;
 
+    public enum EnemyAIMode { Nearest, Stand};
+    public EnemyAIMode currentMode = EnemyAIMode.Nearest;
+    public EnemyNodeData myWaypoint;
+
+    private Damageable myDamageScript;
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        myDamageScript = GetComponent<Damageable>();
         StartCoroutine(AIThink());
         StartCoroutine(RateOfFire());
+
     }
 
+    public bool isAlive()
+    {
+        return myDamageScript.isDead() == false;
+    }
     IEnumerator AIThink()
     {
         GameObject[] coverPoints = GameObject.FindGameObjectsWithTag("CoverNode");
@@ -28,7 +40,29 @@ public class EnemyAI : MonoBehaviour
             //agent.destination = chaseThis.position;
             if(coverPoints.Length > 0)
             {
-                agent.destination = coverPoints[0].transform.position;
+                int bestIdx = -1;
+                float bestIdxScore = 999999.0f;
+                EnemyNodeData end;
+                for (int i = 0; i < coverPoints.Length; i++)
+                {
+                    float considerScore = Vector3.Distance(transform.position, coverPoints[i].transform.position);
+                    end = coverPoints[i].GetComponent<EnemyNodeData>();
+                    if (considerScore < bestIdxScore && (end.beingUsedBy == null || end.beingUsedBy == this))
+                    { 
+                        bestIdx = i;
+                        bestIdxScore = considerScore;
+                    }
+                }
+                if (bestIdx != -1)
+                {
+                    if (myWaypoint != null)
+                    {
+                        myWaypoint.beingUsedBy = null;
+                    }
+                    myWaypoint = coverPoints[bestIdx].GetComponent<EnemyNodeData>();
+                    myWaypoint.beingUsedBy = this;
+                    agent.destination = myWaypoint.transform.position;
+                }   
             }
             yield return new WaitForSeconds(1.0f);
         }
