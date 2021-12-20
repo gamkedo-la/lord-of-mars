@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: e08db30a841326b48a42ee8a36ff517e
+guid: 07ce12768ce00a34483fe3332fd92857
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: -8132976268203080416
-    second: rock|CubeAction
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 2
