@@ -1237,6 +1237,7 @@ GameObject:
   - component: {fileID: 7559971860420285727}
   - component: {fileID: 1467574970}
   - component: {fileID: 7713880823453173512}
+  - component: {fileID: 5334298781909169142}
   m_Layer: 6
   m_Name: First Person Player
   m_TagString: Untagged
@@ -1327,7 +1328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50048f87555c18145b6a0ace0ab17eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1000
 --- !u!114 &7713880823453173512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1344,6 +1345,19 @@ MonoBehaviour:
   backFlasher: {fileID: 23666832}
   leftFlasher: {fileID: 2967408878997770908}
   rightFlasher: {fileID: 1033932805}
+--- !u!114 &5334298781909169142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7559971860420285724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a914ed94a00cd514895473083b2c7aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenadePrefab: {fileID: 7488113179966627422, guid: 9e72ef00e3179b344af905a972bce1a8, type: 3}
 --- !u!1 &7559971860747379914
 GameObject:
   m_ObjectHideFlags: 0
