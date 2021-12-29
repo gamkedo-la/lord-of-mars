@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask bulletMask;
     public ParticleSystem flash;
 
+    public List<GameObject> weaponList;
+    private int weaponSelected = 0;
+
     public float grappleStrength = 50f;
     public float grappleDecay = 0.95f;
     public Text cursor;
@@ -117,6 +120,8 @@ public class PlayerController : MonoBehaviour
         HandleForwardDash();
         HandleBackwardsDash();
         HandleShoot();
+        HandleWeaponSwitch();
+
 
         GameObject grappleTarget = null;
         if (Physics.Raycast(transform.position, CameraTransform.forward, out rhInfo, grappleDistance))
@@ -400,6 +405,60 @@ public class PlayerController : MonoBehaviour
             currentGrapplePoint.transform.position,
             fireFrom.position,
         });
+    }
+
+    private void HandleWeaponSwitch()
+    {
+        int wasSelected = weaponSelected;
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            weaponSelected = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            weaponSelected = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            weaponSelected = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            weaponSelected = 3;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            weaponSelected = 4;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            weaponSelected = 5;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            weaponSelected = 6;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            weaponSelected = 7;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            weaponSelected = 8;
+        }
+        if (wasSelected != weaponSelected)
+        {
+            if(weaponSelected >= weaponList.Count)
+            {
+                Debug.Log("Invalid weapon selection");
+                weaponSelected = wasSelected;
+                return;
+            }
+            for(int i = 0; i < weaponList.Count; i++)
+            {
+                weaponList[i].SetActive(i == weaponSelected);
+            }
+        }
     }
 
 }

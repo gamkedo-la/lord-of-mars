@@ -1352,6 +1352,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 403
   flash: {fileID: 3246123065734770399}
+  weaponList:
+  - {fileID: 7559971859395965101}
+  - {fileID: 2609445344617989659}
   grappleStrength: 50
   grappleDecay: 0.95
   cursor: {fileID: 865991109}
