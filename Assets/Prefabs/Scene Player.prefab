@@ -1420,6 +1420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a914ed94a00cd514895473083b2c7aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 2029014315}
+  indicatorPrefab: {fileID: 5794003950209787628, guid: 40ffc456591f1c740abcb18bbbb42583, type: 3}
   grenadePrefab: {fileID: 7488113179966627422, guid: 9e72ef00e3179b344af905a972bce1a8, type: 3}
 --- !u!1 &7559971860747379914
 GameObject:

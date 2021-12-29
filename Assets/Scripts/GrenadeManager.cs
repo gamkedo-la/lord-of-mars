@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GrenadeManager : MonoBehaviour
 {
+    public Transform canvas;
+    public GameObject indicatorPrefab;
     public GameObject grenadePrefab;
     Vector3 lastPosition = Vector3.zero;
 
@@ -43,6 +45,11 @@ public class GrenadeManager : MonoBehaviour
                 {
                     //right now spawns in front of camera- needs UI indicator- should happen off camera at that point
                    GameObject grenGO = GameObject.Instantiate(grenadePrefab, Camera.main.transform.position + Camera.main.transform.forward * 2.0f, Quaternion.identity);
+                    GameObject indicatorGO = GameObject.Instantiate(indicatorPrefab);
+                    indicatorGO.transform.SetParent(canvas);
+                    indicatorGO.transform.localPosition = Vector3.zero;
+                    GrenadeTracker gtScript = indicatorGO.GetComponent<GrenadeTracker>();
+                    gtScript.grenadeTracked = grenGO.transform;
                     Rigidbody rb = grenGO.GetComponent<Rigidbody>();
                     rb.angularVelocity = Random.insideUnitSphere;
                     rb.AddForce(Random.onUnitSphere * 100.0f);
