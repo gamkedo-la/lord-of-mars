@@ -492,6 +492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 75101646034153463}
+  - component: {fileID: 1002687966202588615}
   m_Layer: 6
   m_Name: SonicGun
   m_TagString: Untagged
@@ -514,6 +515,18 @@ Transform:
   m_Father: {fileID: 7559971859982057528}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1002687966202588615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609445344617989659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b00e9a9e0c76e4aad630d051bd89b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2716207417610881864
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7559971859395965102}
+  - component: {fileID: 3908716070443884787}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -877,6 +891,21 @@ Transform:
   m_Father: {fileID: 7559971859982057528}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3908716070443884787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7559971859395965101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9490ea8158d7c45b739fb391d0968d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireFrom: {fileID: 1295126392766998668}
+  flashParticle: {fileID: 2649256513428850950, guid: d51f76b318b5b9041be9195c87da7a3c, type: 3}
+  flash: {fileID: 6451155979193945128, guid: e6d1abb8dc952bc489659a63387aaf20, type: 3}
 --- !u!1 &7559971859560042632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,9 +1377,6 @@ MonoBehaviour:
     m_Bits: 256
   fireFrom: {fileID: 1295126392766998668}
   flashParticle: {fileID: 2649256513428850950, guid: d51f76b318b5b9041be9195c87da7a3c, type: 3}
-  bulletMask:
-    serializedVersion: 2
-    m_Bits: 403
   flash: {fileID: 3246123065734770399}
   weaponList:
   - {fileID: 7559971859395965101}

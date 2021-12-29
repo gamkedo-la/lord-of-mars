@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
 
     public Transform fireFrom;
     public GameObject flashParticle;
-    public LayerMask bulletMask;
     public ParticleSystem flash;
 
     public List<GameObject> weaponList;
@@ -382,18 +381,7 @@ public class PlayerController : MonoBehaviour
                 return;
             }
 
-            RaycastHit rhInfo;
-            if(Physics.Raycast(CameraTransform.position, CameraTransform.forward, out rhInfo, 200.0f, bulletMask))
-            {
-                //Debug.Log(rhInfo.collider.name);
-                Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
-                if(hurtScript)
-                {
-                    hurtScript.TakeDamage(25.0f, CameraTransform.forward);
-                }
-                Instantiate(flashParticle, rhInfo.point + rhInfo.normal * 0.1f, Quaternion.identity);
-            }
-            flash.Play();
+            weaponList[weaponSelected].SendMessage("Shoot");
         }
     }
 
