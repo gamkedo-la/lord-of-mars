@@ -35876,25 +35876,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 497498053671960542, guid: a7f35f5f1121fb442b599ad910421aa1, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4a33f68aa240b3d4c8a2f964078c8b26, type: 2}
-    - target: {fileID: 497498053671960542, guid: a7f35f5f1121fb442b599ad910421aa1, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4d563ed95bcea254497cfb50dfcd01e3, type: 2}
     - target: {fileID: 2609104070065600134, guid: a7f35f5f1121fb442b599ad910421aa1, type: 3}
       propertyPath: m_Name
       value: ShippingContainerBlue_2Height
-      objectReference: {fileID: 0}
-    - target: {fileID: 2609104070065600134, guid: a7f35f5f1121fb442b599ad910421aa1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 2709781882394246975, guid: a7f35f5f1121fb442b599ad910421aa1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3422373974875139132, guid: a7f35f5f1121fb442b599ad910421aa1, type: 3}
       propertyPath: m_RootOrder
