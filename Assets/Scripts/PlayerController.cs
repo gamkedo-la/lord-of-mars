@@ -72,8 +72,8 @@ public class PlayerController : MonoBehaviour
         print(mLook);
         Cursor.lockState = CursorLockMode.Locked; //doesn't work currently
         CameraTransform = GameObject.FindWithTag("MainCamera").transform;
-
         startingPosition = gameObject.transform.position;
+        ShowOnlyActiveWeapon();
     }
 
 
@@ -442,11 +442,18 @@ public class PlayerController : MonoBehaviour
                 weaponSelected = wasSelected;
                 return;
             }
-            for(int i = 0; i < weaponList.Count; i++)
-            {
-                weaponList[i].SetActive(i == weaponSelected);
-            }
+            ShowOnlyActiveWeapon();
         }
     }
+
+    void ShowOnlyActiveWeapon()
+    {
+        for (int i = 0; i < weaponList.Count; i++)
+        {
+            weaponList[i].SetActive(i == weaponSelected);
+        }
+    }
+
+
 
 }
