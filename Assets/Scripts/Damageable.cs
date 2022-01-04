@@ -45,4 +45,9 @@ public class Damageable : MonoBehaviour
         return health <= 0.0f;
     }
 
+    public bool isLowOnHealth()
+    {
+        return health <= 0.4f * maxHealth && (isDead() == false);
+    }
+
 }

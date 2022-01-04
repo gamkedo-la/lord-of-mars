@@ -12,20 +12,25 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent agent;
     int fireNext = 0;
 
-    public enum EnemyAIMode { Nearest, Stand, AimFromCover};
+    public enum EnemyAIMode { Nearest, Stand, AimFromCover, Rush};
     public EnemyAIMode currentMode = EnemyAIMode.Nearest;
     public EnemyNodeData myWaypoint;
 
     private Damageable myDamageScript;
+    private Damageable playerDamageScript;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         myDamageScript = GetComponent<Damageable>();
+        playerDamageScript = chaseThis.GetComponent<Damageable>();
+        if(playerDamageScript == null)
+        {
+            Debug.Log("Warning: Player Damage Script not found");
+        }
         StartCoroutine(AIThink());
         StartCoroutine(RateOfFire());
-
     }
 
     private void FixedUpdate() // so that we can use slerp without framerate inconsistency 
@@ -43,6 +48,8 @@ public class EnemyAI : MonoBehaviour
                 tempVector.y = transform.position.y; //same height as us, so we only turn side to side 
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(tempVector - transform.position), 0.1f);
                 break;
+            case EnemyAIMode.Rush:
+                break;
             default:
                 Debug.Log("unhandled AI mode in fixed update " + currentMode);
                 break;
@@ -59,7 +66,10 @@ public class EnemyAI : MonoBehaviour
         GameObject[] coverPoints = GameObject.FindGameObjectsWithTag("CoverNode");
         while (true)
         {
-            //agent.destination = chaseThis.position;
+            if(playerDamageScript.isLowOnHealth())
+            {
+                currentMode = EnemyAIMode.Rush;
+            }
             switch (currentMode)
             {
                 case EnemyAIMode.Nearest:
@@ -104,6 +114,10 @@ public class EnemyAI : MonoBehaviour
                 case EnemyAIMode.AimFromCover:
                     agent.isStopped = true;
                     //to do if player is to close to me, flee  
+                    break;
+                case EnemyAIMode.Rush:
+                    agent.destination = chaseThis.position;
+                    agent.isStopped = false;
                     break;
                 default:
                     Debug.Log("unhandled AI mode in AIThink " + currentMode);

@@ -29,7 +29,7 @@ public class GrenadeManager : MonoBehaviour
 
             
                 Debug.Log("player didn't move enough");
-                Collider[] throwRadius = Physics.OverlapSphere(transform.position, 30.0f); //how far AI can throw a grenade
+                Collider[] throwRadius = Physics.OverlapSphere(transform.position, 80.0f); //how far AI can throw a grenade
                 bool foundThrower = false;
                 for (int i = 0; i < throwRadius.Length; i++)
                 {
@@ -44,7 +44,7 @@ public class GrenadeManager : MonoBehaviour
                 if(foundThrower)
                 {
                     //right now spawns in front of camera- needs UI indicator- should happen off camera at that point
-                   GameObject grenGO = GameObject.Instantiate(grenadePrefab, Camera.main.transform.position + Camera.main.transform.forward * 2.0f, Quaternion.identity);
+                   GameObject grenGO = GameObject.Instantiate(grenadePrefab, Camera.main.transform.position - Camera.main.transform.forward * 2.0f, Quaternion.identity);
                     GameObject indicatorGO = GameObject.Instantiate(indicatorPrefab);
                     indicatorGO.transform.SetParent(canvas);
                     indicatorGO.transform.localPosition = Vector3.zero;
