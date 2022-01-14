@@ -5,16 +5,23 @@ using UnityEngine;
 public class Damageable : MonoBehaviour
 {
     public float maxHealth = 100.0f;
-    private float health = 0.0f;
+    public float health = 0.0f;
     private DamageFlash dFlash;
+    private HealthCount healthCount;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
         dFlash = gameObject.GetComponent<DamageFlash>();
+        healthCount = GetComponent<HealthCount>();
+        if (healthCount)
+        {
+            healthCount.UpdateHealthDisplay();
+        }
     }
 
+   
     
     public void TakeDamage(float amt, Vector3 shotDir)
     {
@@ -24,7 +31,11 @@ public class Damageable : MonoBehaviour
             return;
         }
         health -= amt;
-        if(dFlash)
+        if (healthCount)
+        {
+            healthCount.UpdateHealthDisplay();
+        }
+        if (dFlash)
         {
             dFlash.TakeShotFrom(shotDir);
         }
@@ -32,7 +43,14 @@ public class Damageable : MonoBehaviour
         {
             Debug.Log("die " + gameObject.name);
             health = 0.0f;
-            Destroy(gameObject);
+            if (healthCount)
+            {
+                healthCount.UpdateHealthDisplay();
+            }
+            else
+            {
+                Destroy(gameObject);
+            } 
         }
         else
         {
