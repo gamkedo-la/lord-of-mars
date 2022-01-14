@@ -6,6 +6,8 @@ public class SonicGun : MonoBehaviour
 {
     Transform cameraTransform;
     LayerMask bulletMask;
+    public Transform fireFrom;
+    public ParticleSystem shockwave;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,7 @@ public class SonicGun : MonoBehaviour
     public void Shoot()
     {
         Debug.Log("Pew Pew Pew");
+        Instantiate(shockwave, fireFrom.position, fireFrom.rotation);
         RaycastHit rhInfo;
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out rhInfo, 200.0f, bulletMask))
         {
