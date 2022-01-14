@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     private GameObject currentGrapplePoint = null;
     public LineRenderer grappleBeam;
 
+    private AmmoCount ammoCount;
+
     private float timeSinceDash = 0.0f;
     private float tapHoldTimeL = 0f;
     private float timeBetweenTapsL = 0.0f;
@@ -74,6 +76,7 @@ public class PlayerController : MonoBehaviour
         CameraTransform = GameObject.FindWithTag("MainCamera").transform;
         startingPosition = gameObject.transform.position;
         ShowOnlyActiveWeapon();
+        ammoCount = GetComponent<AmmoCount>();
     }
 
 
@@ -380,8 +383,12 @@ public class PlayerController : MonoBehaviour
             {
                 return;
             }
-
-            weaponList[weaponSelected].SendMessage("Shoot");
+            if(ammoCount.HasAmmo())
+            {
+                weaponList[weaponSelected].SendMessage("Shoot");
+                //may need to check if the gun is able to fire if reloading 
+                ammoCount.UseAmmo();
+            }
         }
     }
 
