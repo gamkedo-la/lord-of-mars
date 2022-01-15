@@ -78,8 +78,7 @@ public class PlayerController : MonoBehaviour
         ShowOnlyActiveWeapon();
         ammoCount = GetComponent<AmmoCount>();
     }
-
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -379,7 +378,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            if (GameManagerScript.aTutorialPromptIsOn)
+            if (GameManagerScript.aTutorialPromptIsOn || GameManagerScript.gameIsPaused)
             {
                 return;
             }

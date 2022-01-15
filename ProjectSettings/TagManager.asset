@@ -6,6 +6,8 @@ TagManager:
   tags:
   - TutorialDialogBox
   - CoverNode
+  - PauseManager
+  - PauseImage
   layers:
   - Default
   - TransparentFX
