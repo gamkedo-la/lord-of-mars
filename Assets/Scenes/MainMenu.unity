@@ -882,7 +882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afd39f14d0df405983398cd930957f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 0.1
+  fadeSpeed: 0.06
   growSpeed: 3
   targetTextSize: 200
   titleText: {fileID: 519526136}
