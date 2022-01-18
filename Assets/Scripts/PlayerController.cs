@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public Transform fireFrom;
     public GameObject flashParticle;
     public ParticleSystem flash;
+
+    public GameObject gameOverMenu;
 
     public List<GameObject> weaponList;
     private int weaponSelected = 0;
@@ -67,6 +70,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject parentGameObject;
     private Vector3 startingPosition;
+
+    private void Awake()
+    {
+        gameOverMenu.SetActive(false);
+    }
+
 
     private void Start()
     {
@@ -461,5 +470,15 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("Reloading Scene");
+    }
+
+    public void ShowGameOverMenu()
+    {
+        gameOverMenu.SetActive(true);
+    }
 
 }

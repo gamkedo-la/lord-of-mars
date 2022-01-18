@@ -46,6 +46,16 @@ public class Damageable : MonoBehaviour
             if (healthCount)
             {
                 healthCount.UpdateHealthDisplay();
+                PlayerController pcScript = gameObject.GetComponent<PlayerController>();
+                if(pcScript)
+                {
+                    pcScript.ShowGameOverMenu();
+                    Cursor.lockState = CursorLockMode.None;
+                }
+                else
+                {
+                    Debug.Log("Unable to find player controller. Seems like a problem.");
+                }
             }
             else
             {
