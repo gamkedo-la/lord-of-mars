@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LaserBeam_Mat
-  m_Shader: {fileID: -6465566751694194690, guid: 5fa6c5ce2da65e5459c5a36eed75c1ea, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 5bae446b45a783448bc23761a291d4fd, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -37,5 +37,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - Color_6c71fc28e16c4e4696d1a652dfd87a27: {r: 0.22308072, g: 0.91968787, b: 0, a: 1}
+    - Color_6c71fc28e16c4e4696d1a652dfd87a27: {r: 0, g: 0.4811321, b: 0.012403338, a: 1}
+    - Vector2_461e38479f5b4bc897ee61fbfa25243e: {r: -4, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -9199,6 +9199,25 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &548719071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4240585035491066920, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
+  m_PrefabInstance: {fileID: 7559971859427447940}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &548719073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548719071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24cda6d3916d72c40ae6aae805fce384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserbeamPrefab: {fileID: 5192079311779868140, guid: f61becf48697b38429a4afa332a4cd5d, type: 3}
+  fireFrom: {fileID: 1405329194}
 --- !u!43 &551512418
 Mesh:
   m_ObjectHideFlags: 0
@@ -25947,6 +25966,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385809413}
   m_CullTransparentMesh: 1
+--- !u!4 &1405329194 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3808577589205994556, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
+  m_PrefabInstance: {fileID: 7559971859427447940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1413111248
 Mesh:
   m_ObjectHideFlags: 0
@@ -39203,9 +39227,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1262988203759512093, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506757218156290628, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278821762535412385, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2609445344617989659, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3117886987378003617, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
       propertyPath: m_LocalScale.z
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808577589205994556, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.7076
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808577589205994556, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4119
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808577589205994556, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.5566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739338215080512101, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5425543515610939943, guid: a0f6a5c8267ea0f47857e59bff9781d5, type: 3}
       propertyPath: tracerPrefab
