@@ -8,6 +8,7 @@ public class GaussGun : MonoBehaviour
     LayerMask bulletMask;
     public Transform fireFrom;
     public GameObject flashParticle;
+    public GameObject tracerPrefab;
     public ParticleSystem flash;
     public float hitAmount = 75.0f;
 
@@ -32,7 +33,12 @@ public class GaussGun : MonoBehaviour
                 hurtScript.TakeDamage(hitAmount, cameraTransform.forward);
             }
             Instantiate(flashParticle, rhInfo.point + rhInfo.normal * 0.1f, Quaternion.identity);
+            
         }
         flash.Play();
+
+        if (tracerPrefab) Instantiate(tracerPrefab, fireFrom.position, Quaternion.LookRotation(cameraTransform.forward));
+
+
     }
 }
