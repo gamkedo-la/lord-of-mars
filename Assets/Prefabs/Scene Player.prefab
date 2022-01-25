@@ -854,7 +854,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2198330004839460326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.74, y: -0.48, z: 2.9}
+  m_LocalPosition: {x: 0.7076, y: -0.4119, z: 2.5566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5918727201824091756}
@@ -907,7 +907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireFrom: {fileID: 1521514647304100542}
   flashParticle: {fileID: 6215418256409680813, guid: 33b162c18623dca4a99f5afcc05e6a5f, type: 3}
-  tracerPrefab: {fileID: 0}
+  tracerPrefab: {fileID: 4736074953476138659, guid: 74f5413b4e933224c93b3e4e6d3de507, type: 3}
   flash: {fileID: 6215418256409680811, guid: 33b162c18623dca4a99f5afcc05e6a5f, type: 3}
   hitAmount: 75
 --- !u!1 &2327692783526876409
@@ -6005,6 +6005,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5918727201824091756}
   - component: {fileID: 1262988203759512093}
+  - component: {fileID: 548719073}
   m_Layer: 9
   m_Name: Laser Gun
   m_TagString: Untagged
@@ -6035,7 +6036,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4240585035491066920}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b9490ea8158d7c45b739fb391d0968d, type: 3}
   m_Name: 
@@ -6043,6 +6044,20 @@ MonoBehaviour:
   fireFrom: {fileID: 3808577589205994556}
   flashParticle: {fileID: 2649256513428850950, guid: d51f76b318b5b9041be9195c87da7a3c, type: 3}
   flash: {fileID: 3246123065734770399}
+--- !u!114 &548719073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240585035491066920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24cda6d3916d72c40ae6aae805fce384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserbeamPrefab: {fileID: 5192079311779868140, guid: f61becf48697b38429a4afa332a4cd5d, type: 3}
+  fireFrom: {fileID: 3808577589205994556}
 --- !u!1 &4712471850162783428
 GameObject:
   m_ObjectHideFlags: 0
@@ -7083,6 +7098,8 @@ MonoBehaviour:
   - {fileID: 1506757218156290628}
   - {fileID: 2278821762535412385}
   - {fileID: 4240585035491066920}
+  jumpSound: {fileID: 8300000, guid: f367415967c94d94c90d4e8a0a37d9b3, type: 3}
+  jumpSoundVol: 0.7
   grappleStrength: 50
   grappleDecay: 0.95
   cursor: {fileID: 865991109}
@@ -8119,13 +8136,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6d1abb8dc952bc489659a63387aaf20, type: 3}
---- !u!4 &3674825299154347392 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5076697761791477623, guid: e6d1abb8dc952bc489659a63387aaf20, type: 3}
-  m_PrefabInstance: {fileID: 8397972592948716279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &3246123065734770399 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6451155979193945128, guid: e6d1abb8dc952bc489659a63387aaf20, type: 3}
+  m_PrefabInstance: {fileID: 8397972592948716279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3674825299154347392 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5076697761791477623, guid: e6d1abb8dc952bc489659a63387aaf20, type: 3}
   m_PrefabInstance: {fileID: 8397972592948716279}
   m_PrefabAsset: {fileID: 0}

@@ -24,9 +24,13 @@ public class PlayerController : MonoBehaviour
 
     public GameObject gameOverMenu;
 
+    public AudioManager audioManager;
+
     public List<GameObject> weaponList;
     private int weaponSelected = 0;
 
+
+    [Header("Grapple")]
     public float grappleStrength = 50f;
     public float grappleDecay = 0.95f;
     public Text cursor;
@@ -211,6 +215,8 @@ public class PlayerController : MonoBehaviour
                 {
                     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
                     isGrounded = false;
+                    FindObjectOfType<AudioManager>().SoundPlay("PlayerJump");
+                    //audioManager.SoundPlay("PlayerJump");
                     wallrunningSide = WALLRUNNING_SIDE_NONE;
                 }
             } 
