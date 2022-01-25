@@ -38,6 +38,12 @@ public class PlayerController : MonoBehaviour
     private GameObject currentGrapplePoint = null;
     public LineRenderer grappleBeam;
 
+    [Header("Sounds")]
+    public AudioSource audioSource;
+    public AudioClip[] audioClipArray;
+    [SerializeField] [Range(0, 1)] float grappleSoundVol = 1f;
+
+
     private AmmoCount ammoCount;
 
     private float timeSinceDash = 0.0f;
@@ -77,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         gameOverMenu.SetActive(false);
     }
 
@@ -169,6 +176,8 @@ public class PlayerController : MonoBehaviour
             if (distance > 5.0f)
             {
                 velocity = (currentGrapplePoint.transform.position - transform.position).normalized * grappleStrength;
+                audioSource.clip = audioClipArray[Random.Range(0, audioClipArray.Length)];
+                audioSource.PlayOneShot(audioSource.clip, grappleSoundVol);
             }
             else
             {
