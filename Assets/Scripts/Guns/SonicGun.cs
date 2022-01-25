@@ -18,7 +18,7 @@ public class SonicGun : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("Pew Pew Pew");
+        FindObjectOfType<AudioManager>().SoundPlay("SonicGun");
         Instantiate(shockwave, fireFrom.position, fireFrom.rotation);
         RaycastHit rhInfo;
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out rhInfo, 200.0f, bulletMask))

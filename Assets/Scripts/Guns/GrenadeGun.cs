@@ -10,7 +10,7 @@ public class GrenadeGun : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("grenade fire");
+        FindObjectOfType<AudioManager>().SoundPlay("GrenadeLaunch");
         GameObject tempGO = GameObject.Instantiate(grenadePrefab, fireFrom.transform.position, fireFrom.transform.rotation);
         Rigidbody rb = tempGO.GetComponent<Rigidbody>();
         rb.AddForce(fireFrom.transform.forward * grenadeForce);

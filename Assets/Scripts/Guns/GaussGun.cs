@@ -27,6 +27,7 @@ public class GaussGun : MonoBehaviour
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out rhInfo, 200.0f, bulletMask))
         {
             //Debug.Log(rhInfo.collider.name);
+            FindObjectOfType<AudioManager>().SoundPlay("FunGun");
             Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
             if (hurtScript)
             {
