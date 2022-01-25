@@ -278,6 +278,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
+            FindObjectOfType<AudioManager>().SoundPlay("PlayerFootsteps");
             tapHoldTimeL = 0.0f;
         }
         else if (Input.GetKeyUp(KeyCode.A))
@@ -307,6 +308,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
+            FindObjectOfType<AudioManager>().SoundPlay("PlayerFootsteps");
             tapHoldTimeR = 0.0f;
         }
         else if (Input.GetKeyUp(KeyCode.D))
@@ -336,6 +338,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))
         {
+            FindObjectOfType<AudioManager>().SoundPlay("PlayerFootsteps");
             tapHoldTimeF = 0.0f;
         }
         else if (Input.GetKeyUp(KeyCode.W))
@@ -365,6 +368,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S))
         {
+            FindObjectOfType<AudioManager>().SoundPlay("PlayerFootsteps");
             tapHoldTimeB = 0.0f;
         }
         else if (Input.GetKeyUp(KeyCode.S))
