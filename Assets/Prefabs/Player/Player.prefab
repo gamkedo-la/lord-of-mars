@@ -8023,6 +8023,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5873968783209133293, guid: f61becf48697b38429a4afa332a4cd5d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873968783209133293, guid: f61becf48697b38429a4afa332a4cd5d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0.0017543857
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873968783209133293, guid: f61becf48697b38429a4afa332a4cd5d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 0.9877178
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873968783209133293, guid: f61becf48697b38429a4afa332a4cd5d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873968783209133293, guid: f61becf48697b38429a4afa332a4cd5d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.5094339
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873968783209133293, guid: f61becf48697b38429a4afa332a4cd5d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.49812126
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873968783209133293, guid: f61becf48697b38429a4afa332a4cd5d, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].value
+      value: 0.11697388
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f61becf48697b38429a4afa332a4cd5d, type: 3}
 --- !u!1 &1874756340158942055 stripped

@@ -19,24 +19,47 @@ public class LaserGun : MonoBehaviour
         line = laserBeam.GetComponent<LineRenderer>();
     }
 
+    void Update ()
+    {
+        line.SetPosition(0, fireFrom.position);
+        UpdateLaserEnd();
+
+    }
+
     public void Shoot()
     {
-        Debug.Log("laserbeam fire");
         laserBeam.SetActive(true);
         line.SetPosition(0, fireFrom.position);
-        line.SetPosition(1, fireFrom.position+fireFrom.forward*10.0f);
+        UpdateLaserEnd();
+    }
 
-        /*RaycastHit rhInfo;
+    void UpdateLaserEnd()
+    {
+
+        RaycastHit rhInfo;
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out rhInfo, 200.0f, bulletMask))
         {
             //Debug.Log(rhInfo.collider.name);
             Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
             if (hurtScript)
             {
-                hurtScript.TakeDamage(25.0f, cameraTransform.forward);
+                hurtScript.TakeDamage(25.0f*Time.deltaTime, cameraTransform.forward);
             }
-            Instantiate(laserbeamPrefab, rhInfo.point + rhInfo.normal * 0.1f, Quaternion.identity);
-        }*/
+            line.SetPosition(1, rhInfo.point);
+        } else
+        {
+            line.SetPosition(1, fireFrom.position + fireFrom.forward * 200.0f);
+
+        }
+
 
     }
+
+    public void StopShoot()
+    {
+        laserBeam.SetActive(false);
+
+
+    }
+
 }

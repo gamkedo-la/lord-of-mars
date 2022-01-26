@@ -417,6 +417,11 @@ public class PlayerController : MonoBehaviour
                 ammoCount.UseAmmo();
             }
         }
+        if(Input.GetButtonUp("Fire1"))
+        {
+            weaponList[weaponSelected].SendMessage("StopShoot", SendMessageOptions.DontRequireReceiver);
+
+        }
     }
 
     private void UpdateGrappleBeam()
