@@ -7377,7 +7377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7559971860816830480}
   m_Layer: 6
-  m_Name: Scene Player
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
