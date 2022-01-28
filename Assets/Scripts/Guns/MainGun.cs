@@ -22,12 +22,12 @@ public class MainGun : MonoBehaviour
     public void Shoot()
     {
         RaycastHit rhInfo;
-        FindObjectOfType<AudioManager>().SoundPlay("MainGun");
+        AudioManager.instance.SoundPlayOneShot("MainGun");
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out rhInfo, 200.0f, bulletMask))
         {
             //Debug.Log(rhInfo.collider.name);
             Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
-            FindObjectOfType<AudioManager>().SoundPlay("BulletHit");
+            AudioManager.instance.SoundPlayOneShot("BulletHit");
             if (hurtScript)
             {
                 hurtScript.TakeDamage(25.0f, cameraTransform.forward);
