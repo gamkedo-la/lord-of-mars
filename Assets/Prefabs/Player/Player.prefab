@@ -910,6 +910,7 @@ MonoBehaviour:
   tracerPrefab: {fileID: 4736074953476138659, guid: 74f5413b4e933224c93b3e4e6d3de507, type: 3}
   flash: {fileID: 6215418256409680811, guid: 33b162c18623dca4a99f5afcc05e6a5f, type: 3}
   hitAmount: 75
+  reloadTimeBetweenShots: 2
 --- !u!1 &2327692783526876409
 GameObject:
   m_ObjectHideFlags: 0

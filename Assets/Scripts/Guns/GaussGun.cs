@@ -11,7 +11,9 @@ public class GaussGun : MonoBehaviour
     public GameObject tracerPrefab;
     public ParticleSystem flash;
     public float hitAmount = 75.0f;
+    public float reloadTimeBetweenShots = 1.0f;
 
+    private float reloadTimeRemaining = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +21,30 @@ public class GaussGun : MonoBehaviour
         cameraTransform = Camera.main.transform;
         bulletMask = LayerMask.GetMask("Default", "TransparentFX", "Water", "Grapple", "Ground");
     }
+    private void Update()
+    {
+        if(reloadTimeRemaining > 0.0f)
+        {
+            reloadTimeRemaining -= Time.deltaTime;
+            if(reloadTimeRemaining <= 0.0f)
+            {
+                Debug.Log("TODO, Indicate weapon ready HUD element");
+            }
+
+        }
+
+    }
 
 
     public void Shoot()
     {
+        if(reloadTimeRemaining > 0.0f)
+        {
+            Debug.Log("Put sound for gun not ready to fire again");
+            return;
+        }
+        reloadTimeRemaining = reloadTimeBetweenShots;
+
         RaycastHit rhInfo;
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out rhInfo, 200.0f, bulletMask))
         {

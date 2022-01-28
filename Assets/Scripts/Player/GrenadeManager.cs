@@ -23,12 +23,10 @@ public class GrenadeManager : MonoBehaviour
             Vector3 posNow = transform.position;
             float distMoved = Vector3.Distance(posNow, lastPosition);
             lastPosition = posNow;
-            Debug.Log("considering grenade drop");
             if (distMoved < 2.0f) //how far the player has moved between checks to not get grenaded 
             {
 
             
-                Debug.Log("player didn't move enough");
                 Collider[] throwRadius = Physics.OverlapSphere(transform.position, 80.0f); //how far AI can throw a grenade
                 bool foundThrower = false;
                 for (int i = 0; i < throwRadius.Length; i++)
@@ -37,7 +35,6 @@ public class GrenadeManager : MonoBehaviour
                     if (enemyScript)
                     {
                         foundThrower = true;
-                        Debug.Log("found someone to throw grenade");
                         break;
                     }
                 }
