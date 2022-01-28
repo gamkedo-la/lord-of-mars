@@ -27,8 +27,16 @@ public class PlayerController : MonoBehaviour
     public AudioManager audioManager;
 
     public List<GameObject> weaponList;
-    private int weaponSelected = 0;
-
+    private List<bool> weaponOwnedList;
+    public enum WeaponTypes
+    {
+        MainGun,
+        SonicGun,
+        GrenadeGun,
+        GaussRifle,
+        LaserGun
+    };
+    private WeaponTypes weaponSelected = WeaponTypes.MainGun;
 
     [Header("Grapple")]
     public float grappleStrength = 50f;
@@ -42,6 +50,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] audioClipArray;
     [SerializeField] [Range(0, 1)] float grappleSoundVol = 1f;
+
 
 
     private AmmoCount ammoCount;
@@ -97,6 +106,12 @@ public class PlayerController : MonoBehaviour
         startingPosition = gameObject.transform.position;
         ShowOnlyActiveWeapon();
         ammoCount = GetComponent<AmmoCount>();
+        weaponOwnedList = new List<bool>();
+        for(int i = 0; i < weaponList.Count; i++)
+        {
+            weaponOwnedList.Add(false);
+        }
+        weaponOwnedList[0] = true; //ensure we have the default gun
     }
     
     // Update is called once per frame
@@ -412,14 +427,14 @@ public class PlayerController : MonoBehaviour
             }
             if(ammoCount.HasAmmo())
             {
-                weaponList[weaponSelected].SendMessage("Shoot");
+                weaponList[(int)weaponSelected].SendMessage("Shoot");
                 //may need to check if the gun is able to fire if reloading 
                 ammoCount.UseAmmo();
             }
         }
         if(Input.GetButtonUp("Fire1"))
         {
-            weaponList[weaponSelected].SendMessage("StopShoot", SendMessageOptions.DontRequireReceiver);
+            weaponList[(int)weaponSelected].SendMessage("StopShoot", SendMessageOptions.DontRequireReceiver);
 
         }
     }
@@ -434,54 +449,40 @@ public class PlayerController : MonoBehaviour
         });
     }
 
+    private void EquipIfOwned(WeaponTypes nextGun)
+    {
+        if(weaponOwnedList[(int)nextGun])
+        {
+            weaponSelected = nextGun;
+            ShowOnlyActiveWeapon();
+        }
+        else
+        {
+            Debug.Log("Do not have " + nextGun);
+        }
+    }
+
     private void HandleWeaponSwitch()
     {
-        int wasSelected = weaponSelected;
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            weaponSelected = 0;
+            EquipIfOwned(WeaponTypes.MainGun);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            weaponSelected = 1;
+            EquipIfOwned(WeaponTypes.SonicGun);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            weaponSelected = 2;
+            EquipIfOwned(WeaponTypes.GrenadeGun);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            weaponSelected = 3;
+            EquipIfOwned(WeaponTypes.GaussRifle);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            weaponSelected = 4;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            weaponSelected = 5;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            weaponSelected = 6;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha8))
-        {
-            weaponSelected = 7;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            weaponSelected = 8;
-        }
-        if (wasSelected != weaponSelected)
-        {
-            if(weaponSelected >= weaponList.Count)
-            {
-                Debug.Log("Invalid weapon selection");
-                weaponSelected = wasSelected;
-                return;
-            }
-            ShowOnlyActiveWeapon();
+            EquipIfOwned(WeaponTypes.LaserGun);
         }
     }
 
@@ -489,8 +490,15 @@ public class PlayerController : MonoBehaviour
     {
         for (int i = 0; i < weaponList.Count; i++)
         {
-            weaponList[i].SetActive(i == weaponSelected);
+            weaponList[i].SetActive(i == (int)weaponSelected);
         }
+    }
+
+    public void ObtainGun(WeaponTypes gettingGun)
+    {
+        weaponOwnedList[(int)gettingGun] = true;
+        EquipIfOwned(gettingGun);
+        Debug.Log("weapon acquired: " + gettingGun);
     }
 
 
@@ -504,5 +512,6 @@ public class PlayerController : MonoBehaviour
     {
         gameOverMenu.SetActive(true);
     }
+
 
 }

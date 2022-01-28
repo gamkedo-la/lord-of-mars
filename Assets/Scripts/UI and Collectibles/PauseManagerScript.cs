@@ -10,6 +10,12 @@ public class PauseManagerScript : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         pauseImage = GameObject.FindGameObjectWithTag("PauseImage");
+        if(pauseImage == null)
+        {
+            Debug.LogWarning("Pause Image not found, deactivating pause script");
+            this.enabled = false;
+            return;
+        }
         pauseImage.SetActive(false);
     }
     // Update is called once per frame
