@@ -19,6 +19,7 @@ public class GravityFlip : MonoBehaviour
         {
             Debug.Log("DEBUG: gravity flipping");
             transform.Rotate(Vector3.forward, 180.0f);
+            //TODO teleport to opposite surface
         }
     }
 }
