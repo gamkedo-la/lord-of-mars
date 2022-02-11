@@ -8,6 +8,7 @@ public class Damageable : MonoBehaviour
     public float health = 0.0f;
     private DamageFlash dFlash;
     private HealthCount healthCount;
+    private float healAmount = 50.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -77,5 +78,22 @@ public class Damageable : MonoBehaviour
     {
         return health <= 0.4f * maxHealth && (isDead() == false);
     }
+
+    public void HealDamage()
+    {
+        if(health <= 150)
+        {
+            health += healAmount;
+        }
+        else
+        {
+            health = maxHealth;
+        }
+        if (healthCount)
+        {
+            healthCount.UpdateHealthDisplay();
+        }
+    }
+
 
 }
