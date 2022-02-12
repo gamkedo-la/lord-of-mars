@@ -24,6 +24,17 @@ public class LaserGun : MonoBehaviour
         line.SetPosition(0, fireFrom.position);
         UpdateLaserEnd();
 
+        // If the left mouse button is pressed down...
+        if (Input.GetMouseButtonDown(0) == true)
+        {
+            GetComponent<AudioSource>().Play();
+        }
+        // If the left mouse button is released...
+        if (Input.GetMouseButtonUp(0) == true)
+        {
+            GetComponent<AudioSource>().Stop();
+        }
+
     }
 
     public void Shoot()
