@@ -6,29 +6,73 @@ using TMPro;
 public class AmmoCount : MonoBehaviour
 {
     public TextMeshProUGUI ammoDisplay;
-    private int maxBullets = 250;
-    private int bulletCount;
+    public float largeAmmo = 100.0f;
+    public float mediumAmmo = 50.0f;
+    public float smallAmmo = 25.0f;
+
+    private float maxAmmo = 250.0f;
+    private float ammoCount;
 
     // Start is called before the first frame update
     void Start()
     {
-        bulletCount = maxBullets;
+        ammoCount = maxAmmo;
         UpdateAmmoDisplay();
     }
 
     public bool HasAmmo()
     {
-        return bulletCount > 0;
+        return ammoCount > 0;
     }
 
     public void UseAmmo()
     {
-        bulletCount--;
+        ammoCount--;
         UpdateAmmoDisplay();
     }
 
     public void UpdateAmmoDisplay()
     {
-        ammoDisplay.text = bulletCount + "/" + maxBullets ;
+        ammoDisplay.text = ammoCount + "/" + maxAmmo;
     }
+
+    public void GetAmmoLarge()
+    {
+        if (ammoCount <= 150)
+        {
+            ammoCount += largeAmmo;
+        }
+        else
+        {
+            ammoCount = maxAmmo;
+        }
+        UpdateAmmoDisplay();
+    }
+
+    public void GetAmmoMedium()
+    {
+        if (ammoCount <= 200)
+        {
+            ammoCount += mediumAmmo;
+        }
+        else
+        {
+            ammoCount = maxAmmo;
+        }
+        UpdateAmmoDisplay();
+    }
+
+    public void GetAmmoSmall()
+    {
+        if (ammoCount <= 225)
+        {
+            ammoCount += smallAmmo;
+        }
+        else
+        {
+            ammoCount = maxAmmo;
+        }
+        UpdateAmmoDisplay();
+    }
+
 }

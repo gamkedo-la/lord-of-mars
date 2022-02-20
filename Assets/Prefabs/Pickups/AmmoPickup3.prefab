@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9002387595962916223}
   - component: {fileID: 9002387595962916220}
+  - component: {fileID: -6016760617916451453}
+  - component: {fileID: -3008021684359695531}
   m_Layer: 0
   m_Name: AmmoPickup3
   m_TagString: Untagged
@@ -42,6 +44,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b598af32b44e3e4e99e06faad1ec62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &-6016760617916451453
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002387595962916221}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5865914
+  m_Center: {x: 0, y: 0.45190093, z: 0}
+--- !u!114 &-3008021684359695531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002387595962916221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44bf12292b931d44ac7cf193feb8b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &9002387595912134722
