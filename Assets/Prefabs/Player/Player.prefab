@@ -6790,7 +6790,7 @@ GameObject:
   - component: {fileID: 7559971859846617198}
   m_Layer: 6
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7012,7 +7012,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1527
+    m_Bits: 17911
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -7129,7 +7129,7 @@ GameObject:
   - component: {fileID: 5842617923005664970}
   m_Layer: 6
   m_Name: First Person Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7276,6 +7276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoDisplay: {fileID: 7109264416168123410}
+  largeAmmo: 100
+  mediumAmmo: 50
+  smallAmmo: 25
 --- !u!114 &716848145658332030
 MonoBehaviour:
   m_ObjectHideFlags: 0

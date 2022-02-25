@@ -13,7 +13,7 @@ public class SonicGun : MonoBehaviour
     void Start()
     {
         cameraTransform = Camera.main.transform;
-        bulletMask = LayerMask.GetMask("Default", "TransparentFX", "Water", "Grapple", "Ground");
+        bulletMask = LayerMask.GetMask("Default", "TransparentFX", "Water", "Grapple", "Ground", "Enemy");
     }
 
     public void Shoot()

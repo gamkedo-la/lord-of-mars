@@ -15,7 +15,7 @@ public class MainGun : MonoBehaviour
     void Start()
     {
         cameraTransform = Camera.main.transform;
-        bulletMask = LayerMask.GetMask("Default", "TransparentFX", "Water", "Grapple", "Ground");
+        bulletMask = LayerMask.GetMask("Default", "TransparentFX", "Water", "Grapple", "Ground", "Enemy");
     }
 
 

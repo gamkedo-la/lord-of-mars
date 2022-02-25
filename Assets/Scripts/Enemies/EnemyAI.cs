@@ -130,6 +130,7 @@ public class EnemyAI : MonoBehaviour
 
     IEnumerator RateOfFire()
     {
+        RaycastHit rhInfo;
         while (true)
         {
             bool shouldShoot = false;
@@ -137,14 +138,26 @@ public class EnemyAI : MonoBehaviour
             Quaternion facingAngle = Quaternion.LookRotation(chaseThis.position - transform.position);
             float angToTarget = Quaternion.Angle(transform.rotation, facingAngle);
             //assesses whether player is within line of sight
-            shouldShoot = angToTarget < 45.0f;
+            bool goodAngle = angToTarget < 45.0f;
+            bool goodDistance = (Vector3.Distance(chaseThis.position, transform.position) < 40.0f);
+            if(goodAngle && goodDistance)
+            {
+                Vector3 gunToPlayer = chaseThis.position - gunList[fireNext].position;
+                if (Physics.Raycast(gunList[fireNext].position, gunToPlayer, out rhInfo, 200.0f, bulletMask)) //line of sight test 
+                {
+                    if (rhInfo.collider.gameObject.CompareTag("Player"))
+                    {
+                        shouldShoot = true;
+                    }
+                }
+            }
+
             if (shouldShoot)
             {
                 gunList[fireNext].rotation = Quaternion.Slerp(gunList[fireNext].rotation,
                     gunTargetAngle,
                     0.5f); //percent angle to correct
                 GameObject.Instantiate(muzzleEffect, gunList[fireNext].position, gunList[fireNext].rotation);
-                RaycastHit rhInfo;
                 if (Physics.Raycast(gunList[fireNext].position, gunList[fireNext].forward, out rhInfo, 200.0f, bulletMask))
                 {
                     //Debug.Log(rhInfo.collider.name);
