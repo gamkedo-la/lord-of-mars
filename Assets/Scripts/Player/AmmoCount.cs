@@ -10,6 +10,9 @@ public class AmmoCount : MonoBehaviour
     public float mediumAmmo = 50.0f;
     public float smallAmmo = 25.0f;
 
+
+    private float grenadeCount;
+    private float maxGrenadeCount = 50.0f;
     private float maxAmmo = 250.0f;
     private float ammoCount;
 
@@ -17,17 +20,33 @@ public class AmmoCount : MonoBehaviour
     void Start()
     {
         ammoCount = maxAmmo;
+        grenadeCount = maxGrenadeCount;
         UpdateAmmoDisplay();
     }
 
-    public bool HasAmmo(int cost)
+    public bool HasAmmo(int cost, bool usesGrenades = false)
     {
-        return ammoCount - cost >= 0;
+        if(usesGrenades)
+        {
+            return grenadeCount - cost >= 0;
+        }
+        else
+        {
+            return ammoCount - cost >= 0;
+        }
+
     }
 
-    public void UseAmmo(int cost)
+    public void UseAmmo(int cost, bool usesGrenades = false)
     {
-        ammoCount-= cost;
+        if(usesGrenades)
+        {
+            grenadeCount -= cost;
+        }
+        else
+        {
+            ammoCount -= cost;
+        }
         UpdateAmmoDisplay();
     }
 

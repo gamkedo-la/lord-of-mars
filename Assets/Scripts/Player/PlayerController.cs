@@ -451,7 +451,8 @@ public class PlayerController : MonoBehaviour
                 return;
             }
             AmmoCost acScript = weaponList[(int)weaponSelected].GetComponent<AmmoCost>();
-            if(ammoCount.HasAmmo(acScript.perShot))
+            if(ammoCount.HasAmmo(acScript.perShot, acScript.isGrenades))
+
             {
                 if(acScript.isLaser)
                 {
@@ -459,7 +460,7 @@ public class PlayerController : MonoBehaviour
                 }
                 weaponList[(int)weaponSelected].SendMessage("Shoot");
                 //may need to check if the gun is able to fire if reloading 
-                ammoCount.UseAmmo(acScript.perShot);
+                ammoCount.UseAmmo(acScript.perShot, acScript.isGrenades);
             }
         }
         if(Input.GetButtonUp("Fire1"))
