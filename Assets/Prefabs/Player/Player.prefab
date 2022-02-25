@@ -793,6 +793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8371734241809685588}
   - component: {fileID: 4501322767513236691}
+  - component: {fileID: 5878078669520477688}
   m_Layer: 9
   m_Name: GrenadeGun
   m_TagString: Untagged
@@ -830,6 +831,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grenadePrefab: {fileID: 7488113179966627422, guid: 9e72ef00e3179b344af905a972bce1a8, type: 3}
   fireFrom: {fileID: 3160478095724640687}
+--- !u!114 &5878078669520477688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506757218156290628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e5b2e18c7e14042bf48790408f3d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perShot: 1
 --- !u!1 &2198330004839460326
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4320883163508060899}
   - component: {fileID: 5425543515610939943}
+  - component: {fileID: 2503593269491778987}
   m_Layer: 9
   m_Name: Gauss Rifle
   m_TagString: Untagged
@@ -911,6 +926,19 @@ MonoBehaviour:
   flash: {fileID: 6215418256409680811, guid: 33b162c18623dca4a99f5afcc05e6a5f, type: 3}
   hitAmount: 75
   reloadTimeBetweenShots: 1
+--- !u!114 &2503593269491778987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2278821762535412385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e5b2e18c7e14042bf48790408f3d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perShot: 25
 --- !u!1 &2327692783526876409
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,6 +982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 75101646034153463}
   - component: {fileID: 1002687966202588615}
+  - component: {fileID: 1620011397237894207}
   m_Layer: 9
   m_Name: SonicGun
   m_TagString: Untagged
@@ -991,6 +1020,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireFrom: {fileID: 7869749447778031733}
   shockwave: {fileID: 3744928384071936560, guid: f1e1542bd976ac84faf396676d0b3bdf, type: 3}
+--- !u!114 &1620011397237894207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609445344617989659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e5b2e18c7e14042bf48790408f3d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perShot: 5
 --- !u!1 &2716207417610881864
 GameObject:
   m_ObjectHideFlags: 0
@@ -6007,6 +6049,7 @@ GameObject:
   - component: {fileID: 5918727201824091756}
   - component: {fileID: 548719073}
   - component: {fileID: 2139736535939540453}
+  - component: {fileID: 583042931936407744}
   m_Layer: 9
   m_Name: Laser Gun
   m_TagString: Untagged
@@ -6141,6 +6184,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &583042931936407744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240585035491066920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e5b2e18c7e14042bf48790408f3d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perShot: 10
 --- !u!1 &4712471850162783428
 GameObject:
   m_ObjectHideFlags: 0
@@ -6659,6 +6715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7559971859395965102}
   - component: {fileID: 3908716070443884787}
+  - component: {fileID: 9005125461186433043}
   m_Layer: 9
   m_Name: Gun
   m_TagString: Untagged
@@ -6696,6 +6753,19 @@ MonoBehaviour:
   fireFrom: {fileID: 1295126392766998668}
   flashParticle: {fileID: 2649256513428850950, guid: d51f76b318b5b9041be9195c87da7a3c, type: 3}
   flash: {fileID: 3246123065734770399}
+--- !u!114 &9005125461186433043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7559971859395965101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e5b2e18c7e14042bf48790408f3d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perShot: 1
 --- !u!1 &7559971859560042632
 GameObject:
   m_ObjectHideFlags: 0
@@ -8425,13 +8495,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6d1abb8dc952bc489659a63387aaf20, type: 3}
---- !u!198 &3246123065734770399 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6451155979193945128, guid: e6d1abb8dc952bc489659a63387aaf20, type: 3}
-  m_PrefabInstance: {fileID: 8397972592948716279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3674825299154347392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5076697761791477623, guid: e6d1abb8dc952bc489659a63387aaf20, type: 3}
+  m_PrefabInstance: {fileID: 8397972592948716279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3246123065734770399 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6451155979193945128, guid: e6d1abb8dc952bc489659a63387aaf20, type: 3}
   m_PrefabInstance: {fileID: 8397972592948716279}
   m_PrefabAsset: {fileID: 0}

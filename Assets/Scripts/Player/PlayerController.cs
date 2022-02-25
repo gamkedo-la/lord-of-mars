@@ -425,11 +425,12 @@ public class PlayerController : MonoBehaviour
             {
                 return;
             }
-            if(ammoCount.HasAmmo())
+            AmmoCost acScript = weaponList[(int)weaponSelected].GetComponent<AmmoCost>();
+            if(ammoCount.HasAmmo(acScript.perShot))
             {
                 weaponList[(int)weaponSelected].SendMessage("Shoot");
                 //may need to check if the gun is able to fire if reloading 
-                ammoCount.UseAmmo();
+                ammoCount.UseAmmo(acScript.perShot);
             }
         }
         if(Input.GetButtonUp("Fire1"))

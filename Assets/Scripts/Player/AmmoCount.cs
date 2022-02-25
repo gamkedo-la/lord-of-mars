@@ -20,14 +20,14 @@ public class AmmoCount : MonoBehaviour
         UpdateAmmoDisplay();
     }
 
-    public bool HasAmmo()
+    public bool HasAmmo(int cost)
     {
-        return ammoCount > 0;
+        return ammoCount - cost >= 0;
     }
 
-    public void UseAmmo()
+    public void UseAmmo(int cost)
     {
-        ammoCount--;
+        ammoCount-= cost;
         UpdateAmmoDisplay();
     }
 
