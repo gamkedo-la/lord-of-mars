@@ -26,7 +26,7 @@ public class SonicGun : MonoBehaviour
             Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
             if (hurtScript)
             {
-                hurtScript.TakeDamage(25.0f, cameraTransform.forward);
+                hurtScript.TakeDamage(50.0f, cameraTransform.forward);
             }
             RaycastHit[] pushList = Physics.CapsuleCastAll(transform.position, rhInfo.point, 2.0f, transform.forward); //last argument might be wrong 
             for(int i = 0; i< pushList.Length; i++)

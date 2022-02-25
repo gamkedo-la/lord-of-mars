@@ -54,7 +54,7 @@ public class LaserGun : MonoBehaviour
             Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
             if (hurtScript)
             {
-                hurtScript.TakeDamage(25.0f*Time.deltaTime, cameraTransform.forward);
+                hurtScript.TakeDamage(50.0f*Time.deltaTime, cameraTransform.forward);
             }
             line.SetPosition(1, rhInfo.point);
         } else
