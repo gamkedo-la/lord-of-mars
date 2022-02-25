@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
         GaussRifle,
         LaserGun
     };
+
+    private bool isFiringLaser = false;
+
     private WeaponTypes weaponSelected = WeaponTypes.MainGun;
 
     [Header("Grapple")]
@@ -112,8 +115,30 @@ public class PlayerController : MonoBehaviour
             weaponOwnedList.Add(false);
         }
         weaponOwnedList[0] = true; //ensure we have the default gun
+        StartCoroutine(LaserDrain());
     }
-    
+    IEnumerator LaserDrain()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(0.2f);
+            if(isFiringLaser)
+            {
+                ammoCount.UseAmmo(1);
+                if(ammoCount.HasAmmo(1) == false)
+                {
+                    StopLaser();
+                }
+            }
+        }
+    }
+
+    void StopLaser()
+    {
+        isFiringLaser = false;
+        weaponList[(int)weaponSelected].SendMessage("StopShoot", SendMessageOptions.DontRequireReceiver);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -428,6 +453,10 @@ public class PlayerController : MonoBehaviour
             AmmoCost acScript = weaponList[(int)weaponSelected].GetComponent<AmmoCost>();
             if(ammoCount.HasAmmo(acScript.perShot))
             {
+                if(acScript.isLaser)
+                {
+                    isFiringLaser = true;
+                }
                 weaponList[(int)weaponSelected].SendMessage("Shoot");
                 //may need to check if the gun is able to fire if reloading 
                 ammoCount.UseAmmo(acScript.perShot);
@@ -435,6 +464,11 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetButtonUp("Fire1"))
         {
+            AmmoCost acScript = weaponList[(int)weaponSelected].GetComponent<AmmoCost>();
+            if (acScript.isLaser)
+            {
+                isFiringLaser = false;
+            }
             weaponList[(int)weaponSelected].SendMessage("StopShoot", SendMessageOptions.DontRequireReceiver);
 
         }
@@ -454,6 +488,7 @@ public class PlayerController : MonoBehaviour
     {
         if(weaponOwnedList[(int)nextGun])
         {
+            StopLaser();
             weaponSelected = nextGun;
             ShowOnlyActiveWeapon();
         }

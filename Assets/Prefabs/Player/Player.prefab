@@ -844,6 +844,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perShot: 1
+  isGrenades: 1
+  isLaser: 0
 --- !u!1 &2198330004839460326
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +941,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perShot: 25
+  isGrenades: 0
+  isLaser: 0
 --- !u!1 &2327692783526876409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1037,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perShot: 5
+  isGrenades: 0
+  isLaser: 0
 --- !u!1 &2716207417610881864
 GameObject:
   m_ObjectHideFlags: 0
@@ -6196,7 +6202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e5b2e18c7e14042bf48790408f3d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perShot: 10
+  perShot: 1
+  isGrenades: 0
+  isLaser: 1
 --- !u!1 &4712471850162783428
 GameObject:
   m_ObjectHideFlags: 0
@@ -6766,6 +6774,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perShot: 1
+  isGrenades: 0
+  isLaser: 0
 --- !u!1 &7559971859560042632
 GameObject:
   m_ObjectHideFlags: 0
