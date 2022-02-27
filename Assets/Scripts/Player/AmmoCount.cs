@@ -6,6 +6,7 @@ using TMPro;
 public class AmmoCount : MonoBehaviour
 {
     public TextMeshProUGUI ammoDisplay;
+    public TextMeshProUGUI grenadeDisplay;
     public float largeAmmo = 100.0f;
     public float mediumAmmo = 50.0f;
     public float smallAmmo = 25.0f;
@@ -53,6 +54,7 @@ public class AmmoCount : MonoBehaviour
     public void UpdateAmmoDisplay()
     {
         ammoDisplay.text = ammoCount + "/" + maxAmmo;
+        grenadeDisplay.text = grenadeCount + "/" + maxGrenadeCount;
     }
 
     public void GetAmmoLarge()
