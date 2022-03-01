@@ -7361,6 +7361,7 @@ MonoBehaviour:
   largeAmmo: 100
   mediumAmmo: 50
   smallAmmo: 25
+  getGrenades: 25
 --- !u!114 &716848145658332030
 MonoBehaviour:
   m_ObjectHideFlags: 0

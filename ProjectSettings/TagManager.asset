@@ -8,6 +8,7 @@ TagManager:
   - CoverNode
   - PauseManager
   - PauseImage
+  - Rocket
   layers:
   - Default
   - TransparentFX
