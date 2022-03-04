@@ -99,12 +99,15 @@ MonoBehaviour:
   speed: 15
   stoppingDistance: 20
   retreatDistance: 30
+  bulletMask:
+    serializedVersion: 2
+    m_Bits: 16375
   bullet: {fileID: 8623470384722821152, guid: d45c0829eb299b84a92a51a8316ad84f, type: 3}
   player: {fileID: 0}
   startTimeBtwShots: 2
   shotsSpawnedFrom:
-  - {fileID: 3567109641804049278}
-  - {fileID: 6570300713350846224}
+  - {fileID: 1958160961367856821}
+  - {fileID: 4108694643875325909}
 --- !u!1001 &5494893348763758326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,13 +170,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f175a9f87aeb16543ba55efab38b7298, type: 3}
   m_PrefabInstance: {fileID: 5494893348763758326}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &3567109641804049278 stripped
+--- !u!4 &1958160961367856821 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -161809410444655224, guid: f175a9f87aeb16543ba55efab38b7298, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6299692992179877955, guid: f175a9f87aeb16543ba55efab38b7298, type: 3}
   m_PrefabInstance: {fileID: 5494893348763758326}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6570300713350846224 stripped
+--- !u!4 &4108694643875325909 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -7534612529188849178, guid: f175a9f87aeb16543ba55efab38b7298, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8450103520807700771, guid: f175a9f87aeb16543ba55efab38b7298, type: 3}
   m_PrefabInstance: {fileID: 5494893348763758326}
   m_PrefabAsset: {fileID: 0}
