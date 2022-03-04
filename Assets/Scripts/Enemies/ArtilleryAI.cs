@@ -13,38 +13,38 @@ public class ArtilleryAI : MonoBehaviour
 
     public GameObject bullet;
     public Transform player;
-
-    private float timeBtwShots;
+    
     public float startTimeBtwShots;
     public Transform [] shotsSpawnedFrom;
     private int shootFromNext = 0;
+    private float timeBtwHopTurns = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
-        timeBtwShots = startTimeBtwShots;
+        StartCoroutine(AutoFire());
+        StartCoroutine(HopTurn());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator HopTurn()
     {
-        /*if (Vector3.Distance(transform.position, player.position) > stoppingDistance)
+        while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            yield return new WaitForSeconds(timeBtwHopTurns);
+            Vector3 sameHeight = player.transform.position;
+            sameHeight.y = transform.position.y;
+            transform.LookAt(sameHeight);
         }
-        else if (Vector3.Distance(transform.position, player.position) < stoppingDistance && Vector3.Distance(transform.position, player.position) > retreatDistance)
+    }
+
+
+    IEnumerator AutoFire()
+    {
+        while(true)
         {
-            transform.position = this.transform.position;
-        }
-        else if (Vector3.Distance(transform.position, player.position) < retreatDistance)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-        }*/
+            yield return new WaitForSeconds(startTimeBtwShots);
         
-        if (timeBtwShots < -0)
-        {
             Vector3 shootFrom = shotsSpawnedFrom[shootFromNext].position;
             bool shouldShoot = false;
             RaycastHit rhInfo;
@@ -75,12 +75,9 @@ public class ArtilleryAI : MonoBehaviour
                 Quaternion toPlayer = Quaternion.LookRotation(player.position - shootFrom);
                 Instantiate(bullet, shootFrom, toPlayer);
             }
-            timeBtwShots = startTimeBtwShots;
-        }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
         }
 
     }
+
+
 }
