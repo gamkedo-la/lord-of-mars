@@ -41,7 +41,8 @@ public class ArtilleryAI : MonoBehaviour
         }
         if (timeBtwShots < -0)
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            Quaternion toPlayer = Quaternion.LookRotation(player.position - transform.position);
+            Instantiate(bullet, transform.position, toPlayer);
             timeBtwShots = startTimeBtwShots;
         }
         else
