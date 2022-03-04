@@ -46,8 +46,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.763527
-  m_Center: {x: 0.35477495, y: 1.9532838, z: 0.99689245}
+  m_Radius: 2.7217371
+  m_Center: {x: 0.2263453, y: 1.9532831, z: 0.12620544}
 --- !u!195 &5494893348638924273
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   shotsSpawnedFrom:
   - {fileID: 1958160961367856821}
   - {fileID: 4108694643875325909}
+  goalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &5494893348763758326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f175a9f87aeb16543ba55efab38b7298, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.23
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f175a9f87aeb16543ba55efab38b7298, type: 3}
       propertyPath: m_LocalPosition.y
@@ -129,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f175a9f87aeb16543ba55efab38b7298, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f175a9f87aeb16543ba55efab38b7298, type: 3}
       propertyPath: m_LocalRotation.w

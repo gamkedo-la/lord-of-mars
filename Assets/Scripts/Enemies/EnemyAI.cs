@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform chaseThis;
+    private Transform chaseThis;
     public Transform[] gunList;
     public GameObject muzzleEffect;
     public LayerMask bulletMask;
@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        chaseThis = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         myDamageScript = GetComponent<Damageable>();
         playerDamageScript = chaseThis.GetComponent<Damageable>();
@@ -104,7 +105,6 @@ public class EnemyAI : MonoBehaviour
                         if(Vector3.Distance(transform.position, myWaypoint.transform.position) < 1.0f)
                         {
                             currentMode = EnemyAIMode.AimFromCover;
-                            Debug.Log("reached waypoint, changed to attacking");
                         }
                     }
                     break;
