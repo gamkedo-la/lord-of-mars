@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &152634862352728723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4708003335413437593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b598af32b44e3e4e99e06faad1ec62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5591036174074066666
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,10 +21,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5591036174074066667}
-  - component: {fileID: 5591036174074066664}
   - component: {fileID: 9132597544644661520}
   - component: {fileID: 7195528030339260399}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,18 +46,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5591036174074066664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5591036174074066666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b598af32b44e3e4e99e06faad1ec62d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9132597544644661520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,12 +184,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5890974850803035601, guid: 72041e1096e68924fa14fdbb997d4e14, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 708945255589964592, guid: 72041e1096e68924fa14fdbb997d4e14, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 877452320923368331, guid: 72041e1096e68924fa14fdbb997d4e14, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 72041e1096e68924fa14fdbb997d4e14, type: 3}
       propertyPath: m_Name
       value: Health_Pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 72041e1096e68924fa14fdbb997d4e14, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437362229360541490, guid: 72041e1096e68924fa14fdbb997d4e14, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953199689484629221, guid: 72041e1096e68924fa14fdbb997d4e14, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72041e1096e68924fa14fdbb997d4e14, type: 3}
+--- !u!1 &4708003335413437593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 72041e1096e68924fa14fdbb997d4e14, type: 3}
+  m_PrefabInstance: {fileID: 5591036173849012680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5340671824514272803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 72041e1096e68924fa14fdbb997d4e14, type: 3}

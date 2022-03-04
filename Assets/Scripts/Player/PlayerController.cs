@@ -240,7 +240,7 @@ public class PlayerController : MonoBehaviour
             else if (runningForward && Physics.Raycast(transform.position, transform.right, out rhInfo, wallRunGap, wallRunMask))
             {
                 // Debug.DrawLine(transform.position, transform.position + (transform.right * wallRunGap), Color.red, 1f);
-                // Debug.Log(rhInfo.collider.gameObject.name + " right");
+                 // Debug.Log(rhInfo.collider.gameObject.name + " right");
                 wallrunningSide = WALLRUNNING_SIDE_RIGHT;
             }
             else

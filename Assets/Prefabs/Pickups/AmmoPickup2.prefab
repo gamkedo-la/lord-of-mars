@@ -62,6 +62,18 @@ MonoBehaviour:
   blendDistance: 1
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 33476f97ee7eba14d98b855b0f576116, type: 2}
+--- !u!114 &5493739383873114656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4861934256848810145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b598af32b44e3e4e99e06faad1ec62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5744454178995086330
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,10 +83,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5744454178995086328}
-  - component: {fileID: 5744454178995086331}
   - component: {fileID: 6349809042997257188}
   - component: {fileID: 1518937660824374769}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AmmoPickup2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,18 +108,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5744454178995086331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5744454178995086330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b598af32b44e3e4e99e06faad1ec62d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &6349809042997257188
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -189,8 +188,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ammo_Pickup_1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 008be1e1ab5ad714d95bdc342373f181, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439330323387035088, guid: 008be1e1ab5ad714d95bdc342373f181, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 008be1e1ab5ad714d95bdc342373f181, type: 3}
+--- !u!1 &4861934256848810145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 008be1e1ab5ad714d95bdc342373f181, type: 3}
+  m_PrefabInstance: {fileID: 5744454177271811568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5202466668277066267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 008be1e1ab5ad714d95bdc342373f181, type: 3}
