@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 595864705144622935}
   - component: {fileID: 5603881301181615313}
   - component: {fileID: 9185025091891353382}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Green Box Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
