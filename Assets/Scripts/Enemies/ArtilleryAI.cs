@@ -15,6 +15,8 @@ public class ArtilleryAI : MonoBehaviour
 
     private float timeBtwShots;
     public float startTimeBtwShots;
+    public Transform [] shotsSpawnedFrom;
+    private int shootFromNext = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -41,8 +43,14 @@ public class ArtilleryAI : MonoBehaviour
         }
         if (timeBtwShots < -0)
         {
-            Quaternion toPlayer = Quaternion.LookRotation(player.position - transform.position);
-            Instantiate(bullet, transform.position, toPlayer);
+            Vector3 shootFrom = shotsSpawnedFrom[shootFromNext].position;
+            shootFromNext++;
+            if(shootFromNext >= shotsSpawnedFrom.Length)
+            {
+                shootFromNext = 0;
+            }
+            Quaternion toPlayer = Quaternion.LookRotation(player.position - shootFrom);
+            Instantiate(bullet, shootFrom, toPlayer);
             timeBtwShots = startTimeBtwShots;
         }
         else
