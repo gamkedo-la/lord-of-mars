@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
 
     public static bool gamePaused = false;
 
+    public GameObject playerCanvas;
     public GameObject pauseMenuUI;
     public GameObject optionsMenuUI;
     public bool isPauseMuted = false;
@@ -22,7 +23,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             if (gamePaused)
             {

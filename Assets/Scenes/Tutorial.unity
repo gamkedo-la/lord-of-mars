@@ -7291,63 +7291,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1001 &935202238
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1589871533727185913, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_RootOrder
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589871533727185913, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 391.022
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589871533727185913, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 125.73682
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589871533727185913, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.20916748
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589871533727185913, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589871533727185913, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589871533727185913, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589871533727185913, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589871533727185913, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589871533727185913, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589871533727185913, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589871533727185915, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
-      propertyPath: m_Name
-      value: PauseManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38b60d6b499a8cd4d868358035141e0f, type: 3}
 --- !u!1001 &949794730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14857,6 +14800,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1826954137, guid: bf11c689d70938742b34d2e34da5c1f1, type: 3}
+      propertyPath: playerCanvas
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2780637735287854112, guid: bf11c689d70938742b34d2e34da5c1f1, type: 3}
       propertyPath: m_Name
       value: Pause Menu
@@ -14871,7 +14818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2780637735287854116, guid: bf11c689d70938742b34d2e34da5c1f1, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2780637735287854116, guid: bf11c689d70938742b34d2e34da5c1f1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -14945,13 +14892,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2780637736412362196, guid: bf11c689d70938742b34d2e34da5c1f1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2884269003908093571, guid: bf11c689d70938742b34d2e34da5c1f1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3423750309318960357, guid: bf11c689d70938742b34d2e34da5c1f1, type: 3}
+      propertyPath: m_Name
+      value: Mute Text
       objectReference: {fileID: 0}
     - target: {fileID: 8951992942628505070, guid: bf11c689d70938742b34d2e34da5c1f1, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf11c689d70938742b34d2e34da5c1f1, type: 3}
