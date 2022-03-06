@@ -161,7 +161,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 150}
+  m_SizeDelta: {x: 0, y: 330.174}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &236981362
 MonoBehaviour:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.38039216, g: 0.09019608, b: 0.050980393, a: 0}
+  m_Color: {r: 0.38, g: 0.08797, b: 0.049399998, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -446,8 +446,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: LORD OF MARS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0b5d1bb698f244d559008316e9ceb04b, type: 2}
-  m_sharedMaterial: {fileID: -1308657337654321219, guid: 0b5d1bb698f244d559008316e9ceb04b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee746df704d01434dae49862f0f2610e, type: 2}
+  m_sharedMaterial: {fileID: 889693849376657949, guid: ee746df704d01434dae49862f0f2610e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -572,8 +572,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: QUIT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b0fa56b4c70ea42369df119477d06d05, type: 2}
-  m_sharedMaterial: {fileID: -3764534471319000642, guid: b0fa56b4c70ea42369df119477d06d05, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee746df704d01434dae49862f0f2610e, type: 2}
+  m_sharedMaterial: {fileID: 889693849376657949, guid: ee746df704d01434dae49862f0f2610e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -685,7 +685,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 150}
+  m_SizeDelta: {x: 0, y: 325.479}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &766566165
 MonoBehaviour:
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.38039216, g: 0.09019608, b: 0.050980393, a: 0}
+  m_Color: {r: 0.38, g: 0.08797, b: 0.049399998, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5764,8 +5764,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: START
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b0fa56b4c70ea42369df119477d06d05, type: 2}
-  m_sharedMaterial: {fileID: -3764534471319000642, guid: b0fa56b4c70ea42369df119477d06d05, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ee746df704d01434dae49862f0f2610e, type: 2}
+  m_sharedMaterial: {fileID: 889693849376657949, guid: ee746df704d01434dae49862f0f2610e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10856,8 +10856,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 191.83984, y: 219}
-  m_SizeDelta: {x: 864.86, y: 427.8}
+  m_AnchoredPosition: {x: 191.83984, y: 139.619}
+  m_SizeDelta: {x: 864.86, y: 665.607}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &2141717719
 CanvasRenderer:
