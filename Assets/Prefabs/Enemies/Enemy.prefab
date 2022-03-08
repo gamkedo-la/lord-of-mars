@@ -207,7 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a4df56406bbac448f51de9ea747ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseThis: {fileID: 0}
   gunList:
   - {fileID: 7371419790615865481}
   - {fileID: 7373456389249715942}
@@ -277,7 +276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2331395811457672536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2932787, y: 0.01999998, z: 1.0762463}
+  m_LocalPosition: {x: 1.106, y: -0.0053, z: 2.447}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5663944185941904802}
@@ -617,7 +616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4358412747806124995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3267479, y: 0.01999998, z: 1.0762463}
+  m_LocalPosition: {x: -1.043, y: -0.0057, z: 2.429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3845061141035142561}
