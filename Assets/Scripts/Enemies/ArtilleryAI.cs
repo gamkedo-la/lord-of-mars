@@ -69,38 +69,42 @@ public class ArtilleryAI : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(startTimeBtwShots);
-        
-            Vector3 shootFrom = shotsSpawnedFrom[shootFromNext].position;
-            bool shouldShoot = false;
-            RaycastHit rhInfo;
-            Transform chaseThis = player.transform;
-            Quaternion facingAngle = Quaternion.LookRotation(chaseThis.position - shotsSpawnedFrom[shootFromNext].position);
-            float angToTarget = Quaternion.Angle(shotsSpawnedFrom[shootFromNext].rotation, facingAngle);
-            //assesses whether player is within line of sight
-            bool goodAngle = angToTarget < 45.0f;
-            bool goodDistance = (Vector3.Distance(chaseThis.position, transform.position) < 40.0f);
-            if (goodAngle && goodDistance)
+
+            for (int i = 0; i < 2; i++)
             {
-                Vector3 gunToPlayer = chaseThis.position - shotsSpawnedFrom[shootFromNext].position;
-                if (Physics.Raycast(shotsSpawnedFrom[shootFromNext].position, gunToPlayer, out rhInfo, 200.0f, bulletMask)) //line of sight test 
+                Vector3 shootFrom = shotsSpawnedFrom[shootFromNext].position;
+                bool shouldShoot = false;
+                RaycastHit rhInfo;
+                Transform chaseThis = player.transform;
+                Quaternion facingAngle = Quaternion.LookRotation(chaseThis.position - shotsSpawnedFrom[shootFromNext].position);
+                float angToTarget = Quaternion.Angle(shotsSpawnedFrom[shootFromNext].rotation, facingAngle);
+                //assesses whether player is within line of sight
+                bool goodAngle = angToTarget < 45.0f;
+                bool goodDistance = (Vector3.Distance(chaseThis.position, transform.position) < 40.0f);
+                if (goodAngle && goodDistance)
                 {
-                    if (rhInfo.collider.gameObject.CompareTag("Player"))
+                    Vector3 gunToPlayer = chaseThis.position - shotsSpawnedFrom[shootFromNext].position;
+                    if (Physics.Raycast(shotsSpawnedFrom[shootFromNext].position, gunToPlayer, out rhInfo, 200.0f, bulletMask)) //line of sight test 
                     {
-                        shouldShoot = true;
+                        if (rhInfo.collider.gameObject.CompareTag("Player"))
+                        {
+                            shouldShoot = true;
+                        }
                     }
                 }
-            }
-            shootFromNext++;
-            if(shootFromNext >= shotsSpawnedFrom.Length)
-            {
-                shootFromNext = 0;
-            }
-            if(shouldShoot)
-            {
-                Quaternion toPlayer = Quaternion.LookRotation(player.position - shootFrom);
-                Instantiate(bullet, shootFrom, toPlayer);
+                shootFromNext++;
+                if (shootFromNext >= shotsSpawnedFrom.Length)
+                {
+                    shootFromNext = 0;
+                }
+                if (shouldShoot)
+                {
+                    Quaternion toPlayer = Quaternion.LookRotation(player.position - shootFrom);
+                    Instantiate(bullet, shootFrom, toPlayer);
+                }
             }
         }
+
 
     }
 
