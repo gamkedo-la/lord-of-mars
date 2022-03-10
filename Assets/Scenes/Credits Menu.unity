@@ -6640,6 +6640,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4576485933388249060, guid: 424ee7f4ea6bc024db3494c64bd41877, type: 3}
+      propertyPath: releaseMouse
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4576485933388249061, guid: 424ee7f4ea6bc024db3494c64bd41877, type: 3}
       propertyPath: m_Name
       value: LevelLoader

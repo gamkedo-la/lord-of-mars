@@ -41,6 +41,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gamePaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        playerCanvas.SetActive(true);
     }
 
     void Pause()
@@ -48,11 +50,14 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gamePaused = true;
+        Cursor.lockState = CursorLockMode.None;
+        playerCanvas.SetActive(false);
     }
 
 
     public void QuitGame()
     {
+        Debug.Log("Quit pressed");
         if (gamePaused)
         {
             Resume();

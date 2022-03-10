@@ -43,6 +43,8 @@ public class MainMenu : MonoBehaviour
 
             yield return null;
         }
+        textColor = new Color(textColor.r, textColor.g, textColor.b, 1.0f);
+        textToFade.gameObject.GetComponent<TMP_Text>().color = textColor;
     }
 
     private IEnumerator GrowText(Transform textToGrow)
@@ -62,7 +64,7 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator FadeInButton(Transform imageToFade)
     {
-        yield return new WaitWhile(() => titleText.color.a < 1);
+        //yield return new WaitWhile(() => titleText.color.a < 1);
 
         Color objectColor = imageToFade.gameObject.GetComponent<Image>().color;
 
@@ -75,5 +77,7 @@ public class MainMenu : MonoBehaviour
 
             yield return null;
         }
+        objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, 1.0f);
+        imageToFade.gameObject.GetComponent<Image>().color = objectColor;
     }
 }

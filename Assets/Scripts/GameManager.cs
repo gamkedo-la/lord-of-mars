@@ -8,11 +8,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     int sceneToLoad;
-
+    public bool releaseMouse = false;
 
     private void Awake()
     {
         PauseMenu.gamePaused = false;
+        if(releaseMouse)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        Cursor.visible = releaseMouse;
     }
 
 
