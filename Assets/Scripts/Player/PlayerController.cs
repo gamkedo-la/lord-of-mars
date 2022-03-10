@@ -142,6 +142,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.deltaTime <= 0.0f) //paused (blocking keys) 
+        {
+            return;
+        }
         //Debug.Log("gameObject.transform.position.y: " + gameObject.transform.position.y);
         if (gameObject.transform.position.y < -2.0f)
         {
