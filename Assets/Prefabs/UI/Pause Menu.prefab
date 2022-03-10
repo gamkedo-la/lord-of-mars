@@ -543,8 +543,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.082013145, g: 0.891587, b: 0.9150943, a: 1}
-    m_PressedColor: {r: 0.14796188, g: 0.25411427, b: 0.8962264, a: 1}
+    m_HighlightedColor: {r: 0.9, g: 0.5895, b: 0.09000002, a: 1}
+    m_PressedColor: {r: 0.69, g: 0.05519999, b: 0.05519999, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.8962264, g: 0.74498355, b: 0.08877714, a: 1}
+    m_HighlightedColor: {r: 0.8980392, g: 0.5827182, b: 0.09019609, a: 1}
     m_PressedColor: {r: 0.6886792, g: 0.055224285, b: 0.055224285, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -962,7 +962,7 @@ MonoBehaviour:
   playerCanvas: {fileID: 0}
   pauseMenuUI: {fileID: 2780637735745984235}
   optionsMenuUI: {fileID: 2780637736412362196}
-  isPauseMuted: 0
+  isPauseMuted: 1
 --- !u!114 &2004168180010272957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,8 +1286,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.990566, g: 0.84020185, b: 0.042052314, a: 1}
-    m_PressedColor: {r: 0.6320754, g: 0.02683338, b: 0.02683338, a: 1}
+    m_HighlightedColor: {r: 0.9, g: 0.5895, b: 0.09000002, a: 1}
+    m_PressedColor: {r: 0.69, g: 0.05519999, b: 0.05519999, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
