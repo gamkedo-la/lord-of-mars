@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
         GaussRifle,
         LaserGun
     };
+    public List<WeaponTypes> startWithGuns;
 
     private bool isFiringLaser = false;
 
@@ -115,6 +116,10 @@ public class PlayerController : MonoBehaviour
             weaponOwnedList.Add(false);
         }
         weaponOwnedList[0] = true; //ensure we have the default gun
+        for (int i = 0; i < startWithGuns.Count; i++)
+        {
+            weaponOwnedList[(int)startWithGuns[i]] = true;
+        }
         StartCoroutine(LaserDrain());
     }
     IEnumerator LaserDrain()
