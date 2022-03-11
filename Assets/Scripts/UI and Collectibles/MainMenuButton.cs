@@ -28,7 +28,9 @@ public class MainMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             SceneManager.LoadScene("Tutorial");
         }
-        else if (name == "QuitButton")
+        else if (name == "Credits") {
+            SceneManager.LoadScene("Credits Menu");
+        } else if (name == "QuitButton")
         {
             Application.Quit();
         }
