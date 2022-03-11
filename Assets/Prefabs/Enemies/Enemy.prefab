@@ -210,7 +210,7 @@ MonoBehaviour:
   gunList:
   - {fileID: 7371419790615865481}
   - {fileID: 7373456389249715942}
-  muzzleEffect: {fileID: 8897455943257537131, guid: 6054d2495ab0ce346b271522ee715bab, type: 3}
+  muzzleEffect: {fileID: 7728757257163544773, guid: 487ae6cbe815d0442a4e52b75c5f47fb, type: 3}
   bulletMask:
     serializedVersion: 2
     m_Bits: 16375
@@ -276,7 +276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2331395811457672536}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.106, y: -0.0053, z: 2.447}
+  m_LocalPosition: {x: 1.106, y: -0.0053, z: 2.469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5663944185941904802}
@@ -649,7 +649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5419537117860073091}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.03}
   m_LocalScale: {x: 0.30000004, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 7371419790615865481}
