@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     private MouseLook mLook;
 
+    public Transform killBelowHeightOf;
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 4f;
@@ -151,15 +152,19 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-        //Debug.Log("gameObject.transform.position.y: " + gameObject.transform.position.y);
-        if (gameObject.transform.position.y < -2.0f)
+        //Debug.Log(gameObject.transform.position.y + " " + killBelowHeightOf.position.y);
+        if (gameObject.transform.position.y < killBelowHeightOf.position.y)
         {
             //Debug.Log("inside y position check");
+            controller.enabled = false;
             gameObject.transform.position = startingPosition;
+            controller.enabled = true;
         }
         RaycastHit rhInfo;
         float angleBelowUs = 90f;
         
+
+
         if (Physics.Raycast(transform.position, Vector3.down, out rhInfo, 4.0f))
         {
                 angleBelowUs = Mathf.Acos(rhInfo.normal.y) * Mathf.Rad2Deg;
