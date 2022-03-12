@@ -5,11 +5,12 @@ using UnityEngine.AI;
 
 public class ArtilleryBullet : MonoBehaviour
 {
+    public AudioManager audioManager;
 
+    public GameObject blastEffect;
     public float speed;
 
-    private Transform player;
-    private Vector3 target;
+    private Vector3 dir;
 
     private ArtilleryAI artilleryAI;
     private Damageable myDamageScript;
@@ -17,44 +18,45 @@ public class ArtilleryBullet : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        target = new Vector3(player.position.x, player.position.y, player.position.z);
+        dir = (player.position - transform.position).normalized;
         myDamageScript = GetComponent<Damageable>();
     }
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
-        if(transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z)
-        {
-            DestroyArtilleryBullet();
-
-        }
+        transform.position += dir * speed * Time.deltaTime;
 
     }
 
-
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
+        Explode();
+    }
+    void OnCollisionEnter(Collision coll)
+    {
+        Explode();
+    }
 
-        if(other.CompareTag("Player"))
+    void Explode()
+    {
+        Debug.Log("rocket boom");
+        GameObject.Instantiate(blastEffect, transform.position, Quaternion.identity);
+        Collider[] blastedRadius = Physics.OverlapSphere(transform.position, 10.0f);
+        for (int i = 0; i < blastedRadius.Length; i++)
         {
-            Damageable hurtScript = rhInfo.collider.GetComponentInParent<Damageable>();
-            if (hurtScript)
+            Damageable damageScript = blastedRadius[i].GetComponent<Damageable>(); //might need to check for children of parent?
+            if (damageScript) //todo confirm line of sight with raycast 
             {
-                hurtScript.TakeDamage(30.0f, artilleryAI.shotsSpawnedFrom[0].forward);
+                Debug.Log(blastedRadius[i].gameObject.name);
+                Vector3 hurtVect = (blastedRadius[i].transform.position - transform.position).normalized;
+                damageScript.TakeDamage(30.0f, hurtVect);
+                FindObjectOfType<AudioManager>().SoundPlay("RocketExplosion");
             }
-            DestroyArtilleryBullet();
-        }
-
-    }
-
-
-    void DestroyArtilleryBullet()
-    {
+        } //end of for 
         Destroy(gameObject);
+
     }
 
 }
