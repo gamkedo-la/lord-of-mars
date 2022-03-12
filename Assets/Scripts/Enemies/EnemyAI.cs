@@ -37,24 +37,25 @@ public class EnemyAI : MonoBehaviour
     private void FixedUpdate() // so that we can use slerp without framerate inconsistency 
     {
         Vector3 tempVector;
-        switch (currentMode)
+        /*switch (currentMode)
         {
             case EnemyAIMode.Nearest: //navmesh handles this 
                 break;
             case EnemyAIMode.Stand: //do nothing (helpful for testing)
                 break;
             case EnemyAIMode.AimFromCover: //aim at player 
+            */
                 //transform.LookAt(chaseThis);
                 tempVector = chaseThis.transform.position;
                 tempVector.y = transform.position.y; //same height as us, so we only turn side to side 
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(tempVector - transform.position), 0.1f);
-                break;
+              /*  break;
             case EnemyAIMode.Rush:
                 break;
             default:
                 Debug.Log("unhandled AI mode in fixed update " + currentMode);
                 break;
-        }
+        } */
     }
 
 
@@ -104,6 +105,8 @@ public class EnemyAI : MonoBehaviour
                     {
                         if(Vector3.Distance(transform.position, myWaypoint.transform.position) < 1.0f)
                         {
+                            Debug.Log("aiming from cover");
+                            agent.enabled = false;
                             currentMode = EnemyAIMode.AimFromCover;
                         }
                     }
@@ -112,10 +115,14 @@ public class EnemyAI : MonoBehaviour
                     agent.isStopped = true;
                     break;
                 case EnemyAIMode.AimFromCover:
-                    agent.isStopped = true;
+                    if (agent.enabled)
+                    {
+                        agent.isStopped = true;
+                    }
                     //to do if player is to close to me, flee  
                     break;
                 case EnemyAIMode.Rush:
+                    agent.enabled = true;
                     agent.destination = chaseThis.position;
                     agent.isStopped = false;
                     break;
