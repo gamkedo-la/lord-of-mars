@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Nature.unity
     guid: 768037a4d65825e408c07a72e76639aa
   - enabled: 1
-    path: Assets/Scenes/Flipping Arena.unity
-    guid: 98465d1ad664768408b4e181f00df632
-  - enabled: 1
     path: Assets/Scenes/End Menu.unity
     guid: b4e0d532f93017548a0b4073404b7741
   - enabled: 1
