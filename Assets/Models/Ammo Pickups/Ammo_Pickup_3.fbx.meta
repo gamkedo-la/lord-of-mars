@@ -3,7 +3,27 @@ guid: b8161b09a5ef9f845af33bfc798726bc
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkAccent(Clone)
+    second: {fileID: 2100000, guid: c0bf110bad196da419fd77898a13ea37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkGrey(Clone)
+    second: {fileID: 2100000, guid: 0a9224edf8054f940836c68a46bbf769, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass(Clone)
+    second: {fileID: 2100000, guid: 9311d6762c2d490449aac52bae564999, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Medium_Wood(Clone)
+    second: {fileID: 2100000, guid: ddccb8b0f25e6eb4c89b51f86f66a141, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,7 +105,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.06
+    globalScale: 0.6
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
