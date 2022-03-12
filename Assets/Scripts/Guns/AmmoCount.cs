@@ -7,7 +7,7 @@ public class AmmoCount : MonoBehaviour
 {
     public TextMeshProUGUI ammoDisplay;
     public TextMeshProUGUI grenadeDisplay;
-    public float largeAmmo = 100.0f;
+    public float largeAmmo = 150.0f;
     public float mediumAmmo = 50.0f;
     public float smallAmmo = 25.0f;
     public float getGrenades = 25.0f;
@@ -21,7 +21,7 @@ public class AmmoCount : MonoBehaviour
     void Start()
     {
         ammoCount = maxAmmo;
-        grenadeCount = maxGrenadeCount;
+        grenadeCount = getGrenades;
         UpdateAmmoDisplay();
     }
 

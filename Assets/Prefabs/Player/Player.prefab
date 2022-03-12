@@ -940,7 +940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e5b2e18c7e14042bf48790408f3d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perShot: 25
+  perShot: 10
   isGrenades: 0
   isLaser: 0
 --- !u!1 &2327692783526876409
