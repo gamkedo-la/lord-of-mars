@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public TMP_Text titleText;
     public GameObject mainMenuPanel;
+    public GameObject levelPanel;
 
     private void Start()
     {
@@ -28,6 +29,11 @@ public class MainMenu : MonoBehaviour
         {
             StartCoroutine(FadeInButton(child));
         }
+        foreach (Transform child in levelPanel.transform)
+        {
+            StartCoroutine(FadeInButton(child));
+        }
+
     }
 
     private IEnumerator FadeInText(Transform textToFade)
