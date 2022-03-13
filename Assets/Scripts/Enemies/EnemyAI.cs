@@ -73,8 +73,8 @@ public class EnemyAI : MonoBehaviour
                 currentMode = EnemyAIMode.Rush;
             }
             switch (currentMode)
-            {
-                case EnemyAIMode.Nearest:
+             {
+               case EnemyAIMode.Nearest:
                     if (coverPoints.Length > 0)
                     {
                         int bestIdx = -1;
@@ -105,7 +105,6 @@ public class EnemyAI : MonoBehaviour
                     {
                         if(Vector3.Distance(transform.position, myWaypoint.transform.position) < 1.0f)
                         {
-                            Debug.Log("aiming from cover");
                             agent.enabled = false;
                             currentMode = EnemyAIMode.AimFromCover;
                         }
