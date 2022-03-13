@@ -12,6 +12,7 @@ public class GrenadePickup : MonoBehaviour
         if (controller)
         {
             ammoCount = other.GetComponent<AmmoCount>();
+            FindObjectOfType<AudioManager>().SoundPlay("PickUpSound");
             ammoCount.GetGrenades();
             Destroy(gameObject);
         }

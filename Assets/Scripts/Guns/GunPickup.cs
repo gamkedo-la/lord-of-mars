@@ -14,6 +14,7 @@ public class GunPickup : MonoBehaviour
         {
             Debug.Log("TODO- instantiate particle effect for removal");
             controller.ObtainGun(pickupType);
+            FindObjectOfType<AudioManager>().SoundPlay("PickUpSound");
             Destroy(gameObject);
         }
     }

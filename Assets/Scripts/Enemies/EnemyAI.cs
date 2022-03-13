@@ -150,6 +150,7 @@ public class EnemyAI : MonoBehaviour
             {
                 Vector3 gunToPlayer = chaseThis.position - gunList[fireNext].position;
                 if (Physics.Raycast(gunList[fireNext].position, gunToPlayer, out rhInfo, 200.0f, bulletMask)) //line of sight test 
+                    //FindObjectOfType<AudioManager>().SoundPlay("HoverEnemyFire");
                 {
                     if (rhInfo.collider.gameObject.CompareTag("Player"))
                     {

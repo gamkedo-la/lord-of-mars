@@ -110,3 +110,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: HoverEnemyFire
+    clip: {fileID: 8300000, guid: 67d5adcf3c41f4a4c9a25270a4b1fa77, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PickUpSound
+    clip: {fileID: 8300000, guid: 3de116aebae15fb42aeeb3b835ea958d, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

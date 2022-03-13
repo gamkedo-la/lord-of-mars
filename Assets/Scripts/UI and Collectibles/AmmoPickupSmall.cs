@@ -15,6 +15,7 @@ public class AmmoPickupSmall : MonoBehaviour
         {
             Debug.Log("TODO- instantiate particle effect for removal");
             ammoCount = other.GetComponent<AmmoCount>();
+            FindObjectOfType<AudioManager>().SoundPlay("PickUpSound");
             ammoCount.GetAmmoSmall();
             Destroy(gameObject);
         }

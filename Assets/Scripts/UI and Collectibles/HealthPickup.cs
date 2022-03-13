@@ -14,6 +14,7 @@ public class HealthPickup : MonoBehaviour
         {
             Debug.Log("TODO- instantiate particle effect for removal");
             damageable = other.GetComponent<Damageable>();
+            FindObjectOfType<AudioManager>().SoundPlay("PickUpSound");
             damageable.HealDamage();
             Destroy(gameObject);
         }
