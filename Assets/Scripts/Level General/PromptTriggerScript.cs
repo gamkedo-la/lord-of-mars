@@ -13,7 +13,10 @@ public class PromptTriggerScript : MonoBehaviour
     private bool hasShown = false;
     private void OnTriggerEnter(Collider other)
     {
-        if(hasShown)
+        if (other.gameObject.CompareTag("Player") == false) {
+            return; // prevent grenades etc from triggering the tip
+        }
+        if (hasShown)
         {
             return;
         }
