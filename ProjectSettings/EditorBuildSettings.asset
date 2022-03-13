@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 214098dd7067ee546b5a3771eccfbafc
   - enabled: 1
-    path: Assets/Scenes/A Dark Alley.unity
-    guid: 6eb9a10b55a24c44d915222b18d0c895
-  - enabled: 1
     path: Assets/Scenes/Nature.unity
     guid: 768037a4d65825e408c07a72e76639aa
+  - enabled: 1
+    path: Assets/Scenes/A Dark Alley.unity
+    guid: 6eb9a10b55a24c44d915222b18d0c895
   - enabled: 1
     path: Assets/Scenes/The Market Chase.unity
     guid: d55e0c9e5895ddd4680d8b77789aab78
