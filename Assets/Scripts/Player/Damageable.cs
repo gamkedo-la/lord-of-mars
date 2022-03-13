@@ -81,7 +81,7 @@ public class Damageable : MonoBehaviour
 
     public void HealDamage()
     {
-        if(health <= 150)
+        if(health <= 100)
         {
             health += healAmount;
         }
