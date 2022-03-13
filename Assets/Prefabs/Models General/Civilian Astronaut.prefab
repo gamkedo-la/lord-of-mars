@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2801766538097057853}
   - component: {fileID: 2801766538097057854}
   - component: {fileID: 2801766538097057855}
+  - component: {fileID: 3962223338096515390}
+  - component: {fileID: 6559946850007543060}
   m_Layer: 0
   m_Name: Civilian Astronaut
   m_TagString: Untagged
@@ -97,6 +99,45 @@ CapsuleCollider:
   m_Height: 5.1731086
   m_Direction: 1
   m_Center: {x: 0.007804483, y: 1.7687088, z: 0}
+--- !u!195 &3962223338096515390
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2801766538097057849}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &6559946850007543060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2801766538097057849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75152f52ed99eae44b973cc06aeeea74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentWaypoint: 0
 --- !u!1001 &8779112067373351879
 PrefabInstance:
   m_ObjectHideFlags: 0
