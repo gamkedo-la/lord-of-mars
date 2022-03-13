@@ -561,7 +561,8 @@ public class PlayerController : MonoBehaviour
 
     public void ShowGameOverMenu()
     {
-        gameOverMenu.SetActive(true);
+        //gameOverMenu.SetActive(true);
+        ReloadScene(); //Work around for AI bug
     }
 
 
