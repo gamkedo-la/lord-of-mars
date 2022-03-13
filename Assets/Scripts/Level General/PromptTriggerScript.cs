@@ -10,10 +10,14 @@ public class PromptTriggerScript : MonoBehaviour
     [SerializeField] GameObject tutorialPromptBox;
 
     public string myPrompt;
-
+    private bool hasShown = false;
     private void OnTriggerEnter(Collider other)
     {
-        
+        if(hasShown)
+        {
+            return;
+        }
+        hasShown = true;
         tutorialPromptBox.gameObject.SetActive(true);
         tutorialPromptBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = myPrompt;
         Time.timeScale = 0;
