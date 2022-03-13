@@ -8,18 +8,20 @@ public class CrowdAI : MonoBehaviour
     public Transform[] waypointList;
     public int currentWaypoint = 0;
     private NavMeshAgent agent;
+    private Vector3 goToSameY;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
-        agent.destination = waypointList[currentWaypoint].position;
+        GoToAtSameY();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distToGO = Vector3.Distance(transform.position, waypointList[currentWaypoint].position);
+        float distToGO = Vector3.Distance(transform.position, goToSameY);
+        //Debug.Log(currentWaypoint + " " + distToGO);
         if (distToGO < 5.0f)
         {
             currentWaypoint++;
@@ -27,7 +29,15 @@ public class CrowdAI : MonoBehaviour
             {
                 currentWaypoint = 0;
             }
-            agent.destination = waypointList[currentWaypoint].position;
+
+            GoToAtSameY();
         }
+    }
+
+    void GoToAtSameY()
+    {
+        goToSameY = waypointList[currentWaypoint].position;
+        goToSameY.y = transform.position.y;
+        agent.destination = goToSameY;
     }
 }
