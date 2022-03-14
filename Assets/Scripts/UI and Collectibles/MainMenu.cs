@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour
 
         while (textColor.a < 1)
         {
-            float fadeAmount = textColor.a + (fadeSpeed * Time.fixedDeltaTime);
+            float fadeAmount = textColor.a + (fadeSpeed * Time.deltaTime);
 
             textColor = new Color(textColor.r, textColor.g, textColor.b, fadeAmount);
             textToFade.gameObject.GetComponent<TMP_Text>().color = textColor;
@@ -59,7 +59,7 @@ public class MainMenu : MonoBehaviour
 
         while (textFontSize < targetTextSize)
         {
-            float newSize = textFontSize + (growSpeed * Time.fixedDeltaTime);
+            float newSize = textFontSize + (growSpeed * Time.deltaTime);
             textFontSize = newSize;
 
             textToGrow.GetComponent<TMP_Text>().fontSize = textFontSize;
@@ -76,7 +76,7 @@ public class MainMenu : MonoBehaviour
 
         while (objectColor.a < 1)
         {
-            float fadeAmount = objectColor.a + (fadeSpeed * Time.fixedDeltaTime);
+            float fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
 
             objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
             imageToFade.gameObject.GetComponent<Image>().color = objectColor;
